@@ -63,6 +63,7 @@ List_diir = np.atleast_1d(diir)
 snap_order = []
 List_diir_image = []
 
+print("Checkpoint 0A")
 # this calls all of the snapshots in the output folder
 for ii in range(len(List_diir)): 
     AA = List_diir[ii]
@@ -70,12 +71,12 @@ for ii in range(len(List_diir)):
     snap_order = np.append(snap_order, [snap_ii])
     List_diir_image = np.append(List_diir_image, List_diir[ii])
     # add txt conversion line later! 
-
+    print("Checkpoint 0B")
 # this puts the snapshots in the correct numerical order when they are runa nd saved 
 int_snap = snap_order.astype(int) 
 sorted = np.sort(int_snap)
 List_diir = List_diir_image[np.argsort(int_snap)]
-
+print("Checkpoint 0C")
 #@derived_field(name= ('PartType0', 'number_density'), units="cm**(-3)", sampling_type="cell",force_override=True)
 #def _dinos(field, data):
 #    x_H=0.76
