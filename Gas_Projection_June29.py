@@ -86,19 +86,20 @@ for fname in List_diir:
     Gas_Softening = data["PartType0"]["SmoothingLength"][:]
     
     # this is where I started adding additional parameters
-    ds = yt.load(Directory_path, unit_base=unit_base)
+    ds = yt.load(fname, unit_base=unit_base)
     #ds = yt.load(Directory_path)
     ions_names=['H I','Mg II','C IV','N V','O VI', 'O VII', 'O VIII', 'Ne VIII']  ## Exploration!
     trident.add_ion_fields(ds, ions=ions_names, ftype="PartType0")
     O6_ion_Fraction = ds.all_data()[('gas', 'O_p6_ion_fraction')]
-    O6_ion_Density = ds.all_data()[('gas', 'O_p6_ion_density')]
+    O6_ion_mass = ds.all_data()[('gas', 'O_p6_ion_mass')] # MIGHT NEED TO CHANGE THIS TO SAY MASS INSTEAD OF DENSITY
     Oxygen6 = O6_ion_Fraction
+    Oxygen6_mass = ds.all_data()[('gas', 'O_p6_ion_mass')] # THIS LINE ISNT DONE!!!!
     
     NN = 100 # this defines the x, y, and z axis ranges for the plots 
     #mass = np.ones(len(gas_Loc[:,0]))
     hh = Gas_Softening
     mass = Gas_mass
-    Particles = sphviewer.Particles(Gas_location, mass, Oxygen6, hh)
+    Particles = sphviewer.Particles(Gas_location, Oxygen6_mass, hh)
 
     Scene = sphviewer.Scene(Particles)
     
