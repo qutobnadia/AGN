@@ -69,6 +69,9 @@ for fname in List_diir:
     Gas_Softening = data["PartType0"]["SmoothingLength"][:]
     
     # this is where I started adding additional parameters
+    ds = yt.load(fn,unit_base=unit_base)
+    ions_names=['H I','Mg II','C IV','N V','O VI', 'O VII', 'O VIII', 'Ne VIII']  ## Exploration!
+    trident.add_ion_fields(ds, ions=ions_names, ftype="PartType0")
     O6_ion_Fraction = ds.all_data()[('gas', 'O_p6_ion_fraction')]
     O6_ion_Density = ds.all_data()[('gas', 'O_p6_ion_density')]
     Oxygen6 = O6_ion_Fraction
@@ -84,7 +87,7 @@ for fname in List_diir:
     fig = plt.figure(1,figsize=(15,5))
     
     #set a figure title on top
-    fig.suptitle(r"Snapshot: " + str(sorted[oo]+1) + " with Gas_Softening, Gas_mass, and O6_ion_Fraction", fontsize=17, x=0.5, y=1.4)
+    fig.suptitle(r"Precessing kinetic jet with low energy flux: " + str(sorted[oo]+1) + " with Gas_Softening, Gas_mass, and O6_ion_Fraction", fontsize=17, x=0.5, y=1.4)
     
     plt.subplots_adjust(top =1.8, bottom=0.2,hspace=0.3, wspace=0.3)
     
