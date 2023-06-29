@@ -14,6 +14,17 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 from sphviewer.tools import QuickView
 from glob import glob
 
+import yt
+import trident
+from numpy import *
+from yt import *
+yt.enable_parallelism()
+from mpl_toolkits.axes_grid1 import AxesGrid
+import glob
+from yt import YTQuantity
+from matplotlib.pyplot import *
+from matplotlib.pyplot import cm
+
 """
 Here we present some explanations.
 
