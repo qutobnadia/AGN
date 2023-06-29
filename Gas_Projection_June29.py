@@ -54,6 +54,7 @@ Camera:
 
 """
 # you could put a for loop here that replaces 'm12_mcvt_m2_10000_tor4_pr45_100Myr' with whaterver directories are in /hernquist_lab/AGN_Feedback_Fire then goes to the 'output' folder in each 
+print("Checkpoint 0")
 Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_10000_tor4_pr45_100Myr_lower/output/'
 
 diir = glob(Directory_path + '*.hdf5')
@@ -75,13 +76,13 @@ int_snap = snap_order.astype(int)
 sorted = np.sort(int_snap)
 List_diir = List_diir_image[np.argsort(int_snap)]
 
-@derived_field(name= ('PartType0', 'number_density'), units="cm**(-3)", sampling_type="cell",force_override=True)
-def _dinos(field, data):
-    x_H=0.76
-    proton_mass=YTArray([1.67262178*10**-24],'g')
-    particlemass   = 4.0 / (3.0*x_H + 1.0 + 4.0*x_H*np.array(data[('PartType0','ElectronAbundance')]))*proton_mass
-    den= data['PartType0','Density'] /particlemass
-    return den
+#@derived_field(name= ('PartType0', 'number_density'), units="cm**(-3)", sampling_type="cell",force_override=True)
+#def _dinos(field, data):
+#    x_H=0.76
+#    proton_mass=YTArray([1.67262178*10**-24],'g')
+#    particlemass   = 4.0 / (3.0*x_H + 1.0 + 4.0*x_H*np.array(data[('PartType0','ElectronAbundance')]))*proton_mass
+#    den= data['PartType0','Density'] /particlemass
+#    return den
 
 oo = 0
 for fname in List_diir:
@@ -92,6 +93,7 @@ for fname in List_diir:
     Gas_location = data["PartType0"]["Coordinates"][:] - BH_Center
     Gas_mass = 1e10*data["PartType0"]["Masses"][:]
     Gas_Softening = data["PartType0"]["SmoothingLength"][:]
+    print("Checkpoint 1")
     
     # this is where I started adding additional parameters
     ds = yt.load(fname, unit_base=unit_base) 
@@ -103,6 +105,7 @@ for fname in List_diir:
     # O6_ion_mass = ds.all_data()[('gas', 'O_p6_ion_mass')] # MIGHT NEED TO CHANGE THIS TO SAY MASS INSTEAD OF DENSITY
     # Oxygen6 = O6_ion_Fraction
     Oxygen6_mass = ds.all_data()[('gas', 'O_p6_ion_fraction')] # THIS LINE ISNT DONE!!!!
+    print("Checkpoint 2")
     
     NN = 100 # this defines the x, y, and z axis ranges for the plots 
     #mass = np.ones(len(gas_Loc[:,0]))
@@ -125,7 +128,8 @@ for fname in List_diir:
     
     extendd = [-NN,NN,-NN,NN]
     Scene.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
-
+    print("Checkpoint 3")
+    
     Render = sphviewer.Render(Scene)
     Render.set_logscale()
     img1 = Render.get_image()
