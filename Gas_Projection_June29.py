@@ -75,6 +75,14 @@ int_snap = snap_order.astype(int)
 sorted = np.sort(int_snap)
 List_diir = List_diir_image[np.argsort(int_snap)]
 
+@derived_field(name= ('PartType0', 'number_density'), units="cm**(-3)", sampling_type="cell",force_override=True)
+def _dinos(field, data):
+    x_H=0.76
+    proton_mass=YTArray([1.67262178*10**-24],'g')
+    particlemass   = 4.0 / (3.0*x_H + 1.0 + 4.0*x_H*np.array(data[('PartType0','ElectronAbundance')]))*proton_mass
+    den= data['PartType0','Density'] /particlemass
+    return den
+
 oo = 0
 for fname in List_diir:
     data = h5py.File(fname,"r")
