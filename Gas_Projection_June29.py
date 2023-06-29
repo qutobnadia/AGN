@@ -87,7 +87,7 @@ for fname in List_diir:
     
     # this is where I started adding additional parameters
     #ds = yt.load(Directory_path,unit_base=unit_base)
-    ds = yt.load(Directory_path,unit_base)
+    ds = yt.load(Directory_path)
     ions_names=['H I','Mg II','C IV','N V','O VI', 'O VII', 'O VIII', 'Ne VIII']  ## Exploration!
     trident.add_ion_fields(ds, ions=ions_names, ftype="PartType0")
     O6_ion_Fraction = ds.all_data()[('gas', 'O_p6_ion_fraction')]
