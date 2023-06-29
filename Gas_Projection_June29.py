@@ -15,7 +15,7 @@ from sphviewer.tools import QuickView
 from glob import glob
 import trident
 
-'''
+
 import yt
 import trident
 from numpy import *
@@ -26,7 +26,12 @@ import glob
 from yt import YTQuantity
 from matplotlib.pyplot import *
 from matplotlib.pyplot import cm
-'''
+
+unit_base = {'UnitLength_in_cm'         : 3.08568e+21,
+             'UnitMass_in_g'            :   1.989e+43,
+             'UnitVelocity_in_cm_per_s' :      100000}
+
+
 """
 Here we present some explanations.
 
@@ -82,13 +87,11 @@ for fname in List_diir:
     Gas_Softening = data["PartType0"]["SmoothingLength"][:]
     
     # this is where I started adding additional parameters
-    #ds = yt.load(fn,unit_base=unit_base)
+    ds = yt.load(fn,unit_base=unit_base)
     ions_names=['H I','Mg II','C IV','N V','O VI', 'O VII', 'O VIII', 'Ne VIII']  ## Exploration!
     trident.add_ion_fields(ds, ions=ions_names, ftype="PartType0")
-    #O6_ion_Fraction = ds.all_data()[('gas', 'O_p6_ion_fraction')]
-    #O6_ion_Density = ds.all_data()[('gas', 'O_p6_ion_density')]
-    O6_ion_Fraction = data()[('gas', 'O_p6_ion_fraction')]
-    O6_ion_Density = data()[('gas', 'O_p6_ion_density')]
+    O6_ion_Fraction = ds.all_data()[('gas', 'O_p6_ion_fraction')]
+    O6_ion_Density = ds.all_data()[('gas', 'O_p6_ion_density')]
     Oxygen6 = O6_ion_Fraction
     
     NN = 100 # this defines the x, y, and z axis ranges for the plots 
