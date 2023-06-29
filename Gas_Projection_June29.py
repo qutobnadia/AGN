@@ -15,6 +15,8 @@ from sphviewer.tools import QuickView
 from glob import glob
 import trident
 
+import mpi4py
+
 import yt
 import trident
 from numpy import *
