@@ -97,9 +97,11 @@ for fname in List_diir:
     
     # this is where I started adding additional parameters
     ds = yt.load(fname, unit_base=unit_base) 
+    print("checkpoint 1A")
     #ds = yt.load(Directory_path)
     ions_names=['H I','Mg II','C IV','N V','O VI', 'O VII', 'O VIII', 'Ne VIII']  ## Exploration!
     trident.add_ion_fields(ds, ions=ions_names, ftype="PartType0")
+    print("Checkpoint 1B")
     # H1_Number = ds.all_data()[('PartType0', 'H_p1_number_density')]
     # O6_ion_Fraction = ds.all_data()[('gas', 'O_p6_ion_fraction')]
     # O6_ion_mass = ds.all_data()[('gas', 'O_p6_ion_mass')] # MIGHT NEED TO CHANGE THIS TO SAY MASS INSTEAD OF DENSITY
