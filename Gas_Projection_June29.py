@@ -13,6 +13,7 @@ from matplotlib.pyplot import cm
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from sphviewer.tools import QuickView
 from glob import glob
+import trident
 
 '''
 import yt
