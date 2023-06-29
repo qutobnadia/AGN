@@ -97,11 +97,11 @@ for fname in List_diir:
     
     # this is where I started adding additional parameters
     ds = yt.load(fname, unit_base=unit_base) 
-    print("checkpoint 1A")
+    #print("checkpoint 1A")
     #ds = yt.load(Directory_path)
     ions_names=['H I','Mg II','C IV','N V','O VI', 'O VII', 'O VIII', 'Ne VIII']  ## Exploration!
     trident.add_ion_fields(ds, ions=ions_names, ftype="PartType0")
-    print("Checkpoint 1B")
+    #print("Checkpoint 1B")
     # H1_Number = ds.all_data()[('PartType0', 'H_p1_number_density')]
     # O6_ion_Fraction = ds.all_data()[('gas', 'O_p6_ion_fraction')]
     # O6_ion_mass = ds.all_data()[('gas', 'O_p6_ion_mass')] # MIGHT NEED TO CHANGE THIS TO SAY MASS INSTEAD OF DENSITY
@@ -120,7 +120,7 @@ for fname in List_diir:
     fig = plt.figure(1,figsize=(15,5))
     
     #set a figure title on top
-    fig.suptitle(r"Precessing kinetic jet with low energy flux: " + str(sorted[oo]+1) + " with Gas_Softening, Gas_mass, and O6_ion_Fraction", fontsize=17, x=0.5, y=1.4)
+    fig.suptitle(r"Precessing kinetic jet with low energy flux: " + str(sorted[oo]+1) + " with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=1.4)
     
     plt.subplots_adjust(top =1.8, bottom=0.2,hspace=0.3, wspace=0.3)
     
