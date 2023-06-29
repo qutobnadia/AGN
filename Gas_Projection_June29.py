@@ -15,7 +15,6 @@ from sphviewer.tools import QuickView
 from glob import glob
 import trident
 
-
 import yt
 import trident
 from numpy import *
@@ -201,8 +200,8 @@ for fname in List_diir:
     ax3.set_xlabel('$Z$(kpc)', size=12)
     ax3.set_ylabel('$X$(kpc)', size=12)
     
-    Default_dir = '/n/home13/nqutob/AGN_Feedback/mass_snapshots/' + 'm12_mcvt_m2_10000_tor4_pr45_100Myr_lower'
-    Default_dir_pdf = '/n/home13/nqutob/AGN_Feedback/mass_snapshots/' + 'm12_mcvt_m2_10000_tor4_pr45_100Myr_lower_pdf'
+    Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_10000_tor4_pr45_100Myr_lower'
+    Default_dir_pdf = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_10000_tor4_pr45_100Myr_lower_pdf'
 
     try:
         os.mkdir(Default_dir)
