@@ -67,7 +67,7 @@ for uu in range(1):
     #set a figure title on top
     #fig.suptitle("Star Forming Gas:" + str(labb_tit[uu]), fontsize=17, x=0.5, y=1.4)
     
-    fig.suptitle(r"Precessing kinetic jet with low energy flux: Snapshot #" + str(sorted[oo]+1) + " with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=2.5)
+    fig.suptitle(r"Precessing kinetic jet with low energy flux: Snapshot #056 with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=2.5)
     plt.subplots_adjust(top =2.5, bottom=0.2, hspace=0.3, wspace=0.3)
     
     #plt.subplots_adjust(top =1.8, bottom=0.2,hspace=0.3, wspace=0.3)
