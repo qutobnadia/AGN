@@ -30,9 +30,9 @@ from sphviewer.tools import QuickView
 ### Here we study the density profile of the gas particles. We consider two different cases. 1) When we take into account all of the gas particles and monitor their density profile. 2) When we consider the star forming gas and see how do they look like!!!
 
 
-Dir_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_t95_3000_tor4/output/snapshot_056.hdf5'
+Dir_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_t95_3000_tor4/output/snapshot_057.hdf5'
 
-data = h5py.File("/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_t95_3000_tor4/output/snapshot_056.hdf5","r")
+data = h5py.File("/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_t95_3000_tor4/output/snapshot_057.hdf5","r")
 
 #data.keys()
 
@@ -67,8 +67,8 @@ for uu in range(1):
     #set a figure title on top
     #fig.suptitle("Star Forming Gas:" + str(labb_tit[uu]), fontsize=17, x=0.5, y=1.4)
     
-    fig.suptitle(r"Precessing kinetic jet with low energy flux: Snapshot #056 with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=2.5)
-    plt.subplots_adjust(top =2.5, bottom=0.2, hspace=0.3, wspace=0.3)
+    fig.suptitle(r"Precessing kinetic jet with low energy flux: Snapshot #057 with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=2)
+    plt.subplots_adjust(top =2, bottom=0.2, hspace=0.3, wspace=0.3)
     
     #plt.subplots_adjust(top =1.8, bottom=0.2,hspace=0.3, wspace=0.3)
     
@@ -163,7 +163,7 @@ for uu in range(1):
     ax3.set_xlabel('$Z$(kpc)', size=12)
     ax3.set_ylabel('$X$(kpc)', size=12)
     
-    plt.savefig('/n/home13/nqutob/AGN_Feedback/hdf5_test/snapshot_056.png', dpi = 400, transparent = True,bbox_inches='tight')
+    plt.savefig('/n/home13/nqutob/AGN_Feedback/hdf5_test/snapshot_057.png', dpi = 400, transparent = True,bbox_inches='tight')
  
     
 pdb.set_trace()
