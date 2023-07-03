@@ -144,7 +144,7 @@ for fname in List_diir:
     divider = make_axes_locatable(ax1)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
-    cb = fig.colorbar(image1, cax=cax, orientation="horizontal", vmin=5, vmax=8.5) # added vmin and vmax parameters for the color bar 
+    cb = fig.colorbar(image1, cax=cax, orientation="horizontal") # added vmin and vmax parameters for the color bar 
     #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
     cb.ax.tick_params(labelsize=15)
 
