@@ -55,7 +55,7 @@ Camera:
 """
 # you could put a for loop here that replaces 'm12_mcvt_m2_10000_tor4_pr45_100Myr' with whaterver directories are in /hernquist_lab/AGN_Feedback_Fire then goes to the 'output' folder in each 
 print("Checkpoint 0")
-Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_t95_3000_tor4_lower/output/'
+Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_10000_tor4_pr45_100Myr_lower/output/'
 
 diir = glob(Directory_path + '*.hdf5')
 
@@ -126,7 +126,7 @@ for fname in List_diir:
     fig = plt.figure(1,figsize=(15,5))
     
     #set a figure title on top
-    fig.suptitle(r"Hot thermal jet but with lower energy flux : Snapshot #" + str(sorted[oo]+1) + " with O7 Mass", fontsize=17, x=0.5, y=1.5)
+    fig.suptitle(r"Precessing kinetic jet with low energy flux : Snapshot #" + str(sorted[oo]+1) + " with O7 Mass", fontsize=17, x=0.5, y=1.5)
     
     plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
     
@@ -227,8 +227,8 @@ for fname in List_diir:
     ax3.set_xlabel('$Z$(kpc)', size=12)
     ax3.set_ylabel('$X$(kpc)', size=12)
     
-    Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_t95_3000_tor4_lower'
-    Default_dir_pdf = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_t95_3000_tor4_lower_pdf'
+    Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_10000_tor4_pr45_100Myr_lower'
+    Default_dir_pdf = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_10000_tor4_pr45_100Myr_lower_pdf'
 
     try:
         os.mkdir(Default_dir)
@@ -240,8 +240,8 @@ for fname in List_diir:
     except:
         pass
     
-    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_t95_3000_tor4_lower' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
-    plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_t95_3000_tor4_lower' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
+    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_10000_tor4_pr45_100Myr_lower' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
+    plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_10000_tor4_pr45_100Myr_lower' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
 
     plt.close()
     oo += 1
