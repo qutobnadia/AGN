@@ -121,7 +121,7 @@ for fname in List_diir:
     fig = plt.figure(1,figsize=(15,5))
     
     #set a figure title on top
-    fig.suptitle(r"Precessing kinetic jet with low energy flux: Snapshot #" + str(sorted[oo]+1) + " with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=1.5)
+    fig.suptitle(r"Hot thermal jet with higher energy flux: Snapshot #" + str(sorted[oo]+1) + " with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=1.5)
     
     plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
     
@@ -142,9 +142,9 @@ for fname in List_diir:
     #ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
     image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True)
     divider = make_axes_locatable(ax1)
-    cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
+    cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True, vmin=1, vmax=3) # added vmin and vmax parameters for the color bar 
     fig.add_axes(cax)
-    cb = fig.colorbar(image1, cax=cax, orientation="horizontal") # added vmin and vmax parameters for the color bar 
+    cb = fig.colorbar(image1, cax=cax, orientation="horizontal") # do not add vmin or vmax here  
     #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
     cb.ax.tick_params(labelsize=15)
 
