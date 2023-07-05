@@ -144,6 +144,7 @@ for fname in List_diir:
     divider = make_axes_locatable(ax1)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
+    #cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True, vmin=1, vmax=3) # added vmin and vmax parameters for the color bar 
     cb = fig.colorbar(image1, cax=cax, orientation="horizontal") # added vmin and vmax parameters for the color bar 
     #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
     cb.ax.tick_params(labelsize=15)
@@ -231,8 +232,8 @@ for fname in List_diir:
     except:
         pass
     
-    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '.png', dpi = 600, transparent = True, bbox_inches='tight')
-    plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
+    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + 'm12_mcvt_m2_t95_3000_tor4_lower' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
+    plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + 'm12_mcvt_m2_t95_3000_tor4_lower' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
 
     plt.close()
     oo += 1
