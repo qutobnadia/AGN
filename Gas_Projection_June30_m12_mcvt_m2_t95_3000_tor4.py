@@ -140,9 +140,9 @@ for fname in List_diir:
     divider = make_axes_locatable(ax1)
 
     #ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True)
+    image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True, vmin=1, vmax=3) # added vmin and vmax parameters for the color bar 
     divider = make_axes_locatable(ax1)
-    cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True, vmin=1, vmax=3) # added vmin and vmax parameters for the color bar 
+    cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True) 
     fig.add_axes(cax)
     cb = fig.colorbar(image1, cax=cax, orientation="horizontal") # do not add vmin or vmax here  
     #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
