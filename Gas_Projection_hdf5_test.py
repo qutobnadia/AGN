@@ -55,7 +55,6 @@ for uu in range(1):
     
     NN = 100
     
-    #mass = np.ones(len(gas_Loc[:,0]))
     hh = Gas_Softening
     mass = Gas_mass
     Particles = sphviewer.Particles(Gas_location, mass, hh)
@@ -64,22 +63,23 @@ for uu in range(1):
     
     fig = plt.figure(1,figsize=(15,5))
     
-    #set a figure title on top
-    #fig.suptitle("Star Forming Gas:" + str(labb_tit[uu]), fontsize=17, x=0.5, y=1.4)
-    
     fig.suptitle(r"Precessing kinetic jet with low energy flux: Snapshot #057 with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=1.6)
     plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
-    
-    #plt.subplots_adjust(top =1.8, bottom=0.2,hspace=0.3, wspace=0.3)
     
     ax1 = fig.add_subplot(131)
     ax2 = fig.add_subplot(132)
     ax3 = fig.add_subplot(133)
     
     extendd = [-NN,NN,-NN,NN]
-    Scene.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
 
-    Render = sphviewer.Render(Scene)
+    z = Gas_location[:,2]
+    mask_z=np.abs(z)<5  #5 is the parameter that we can modify 
+    Particles1 = sphviewer.Particles(Gas_location[mask_z], Oxygen6_mass[mask_z], hh[mask_z]) 
+
+    Scene1 = sphviewer.Scene(Particles1) # MODIFIED! 
+    Scene.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent=extendd)
+    
+    Render = sphviewer.Render(Scene1)
     Render.set_logscale()
     img1 = Render.get_image()
     extent1 = Render.get_extent()
@@ -91,7 +91,6 @@ for uu in range(1):
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
     cb = fig.colorbar(image1, cax=cax, orientation="horizontal")
-    #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
     cb.ax.tick_params(labelsize=15)
 
     #cb = fig.colorbar(img1, cax=cax, orientation="horizontal")
@@ -103,9 +102,15 @@ for uu in range(1):
     ax1.set_xlabel('$X$(kpc)', size=12)
     ax1.set_ylabel('$Y$(kpc)', size=12)
 
+
+    x = Gas_location[:,2]
+    mask_x=np.abs(z)<5  #5 is the parameter that we can modify 
+    Particles2 = sphviewer.Particles(Gas_location[mask_x], Oxygen6_mass[mask_x], hh[mask_x]) 
+
+    Scene2 = sphviewer.Scene(Particles2) # MODIFIED!
     Scene.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
     
-    Render = sphviewer.Render(Scene)
+    Render = sphviewer.Render(Scene2)
     Render.set_logscale()
     img2 = Render.get_image()
     extent2 = Render.get_extent()
@@ -134,9 +139,14 @@ for uu in range(1):
     ax2.set_xlabel('$Y$(kpc)', size=12)
     ax2.set_ylabel('$Z$(kpc)', size=12)
 
+    y = Gas_location[:,2]
+    mask_y=np.abs(z)<5  #5 is the parameter that we can modify 
+    Particles3 = sphviewer.Particles(Gas_location[mask_y], Oxygen6_mass[mask_y], hh[mask_y]) 
+
+    Scene3 = sphviewer.Scene(Particles3) # MODIFIED!
     Scene.update_camera(r='infinity', t=90, p = 0, roll = -90, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
 
-    Render = sphviewer.Render(Scene)
+    Render = sphviewer.Render(Scene3)
     Render.set_logscale()
     img3 = Render.get_image()
     extent3 = Render.get_extent()
@@ -150,11 +160,6 @@ for uu in range(1):
     #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
     cb.ax.tick_params(labelsize=15)
 
-
-    #cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
-    #fig.add_axes(cax)
-    #cb = fig.colorbar(img2)
-
     #cb = fig.colorbar(img3, cax=cax, orientation="horizontal")
     #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
     #cb.ax.tick_params(labelsize=15)
@@ -163,7 +168,7 @@ for uu in range(1):
     ax3.set_xlabel('$Z$(kpc)', size=12)
     ax3.set_ylabel('$X$(kpc)', size=12)
     
-    plt.savefig('/n/home13/nqutob/AGN_Feedback/hdf5_test/snapshot_057.png', dpi = 400, transparent = True,bbox_inches='tight')
+    plt.savefig('/n/home13/nqutob/AGN_Feedback/hdf5_test/snapshot_test.png', dpi = 400, transparent = True,bbox_inches='tight')
  
     
 pdb.set_trace()
