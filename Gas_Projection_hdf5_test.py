@@ -32,32 +32,22 @@ unit_base = {'UnitLength_in_cm'         : 3.08568e+21,
 
 """
 Here we present some explanations.
-
 Camera:
     The Camera class is a container that stores the camera parameters. The camera is an object that lives in the space and has spherical coordinates (r,theta,phi), centred around the location (x,y,z). Angles *theta* and *phi* are given in degrees, and enable to rotate the camera along the x-axis and y-axis, respectively. The *roll* angle induces rotations along the line-of-sight, i.e., the z-axis.
 """
 
-
 ### Interesting toturial: http://alejandrobll.github.io/py-sphviewer/content/tutorial_projections.html
 
-### Here we study the density profile of the gas particles. We consider two different cases. 1) When we take into account all of the gas particles and monitor their density profile. 2) When we consider the star forming gas and see how do they look like!!!
-
-
 Dir_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_t95_3000_tor4/output/snapshot_057.hdf5'
-
 data = h5py.File("/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_t95_3000_tor4/output/snapshot_057.hdf5","r")
 
 #data.keys()
-
 #data["PartType0"].keys()
-
 
 """
 <KeysViewHDF5 ['CoolingRate', 'Coordinates', 'Density', 'DivBcleaningFunctionGradPhi', 'DivBcleaningFunctionPhi', 'DivergenceOfMagneticField', 'ElectronAbundance', 'HeatingRate', 'HydroHeatingRate', 'IMFFormationProperties', 'InternalEnergy', 'MagneticField', 'Masses', 'MetalCoolingRate', 'Metallicity', 'NetHeatingRateQ', 'NeutralHydrogenAbundance', 'ParticleChildIDsNumber', 'ParticleIDGenerationNumber', 'ParticleIDs', 'SmoothingLength', 'StarFormationRate', 'Velocities']>
 
-
 """
-
 
 for uu in range(1):
 
@@ -80,7 +70,6 @@ for uu in range(1):
     Scene = sphviewer.Scene(Particles)
     
     fig = plt.figure(1,figsize=(15,5))
-    
     fig.suptitle(r"Precessing kinetic jet with low energy flux: Snapshot #057 with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=1.6)
     plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
     
@@ -104,8 +93,7 @@ for uu in range(1):
     divider = make_axes_locatable(ax1)
 
     #ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True)
-    #divider = make_axes_locatable(ax1)
+    image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True, vmin=1.75, vmax=4)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
     cb = fig.colorbar(image1, cax=cax, orientation="horizontal")
@@ -113,7 +101,6 @@ for uu in range(1):
 
     ax1.set_xlabel('$X$(kpc)', size=12)
     ax1.set_ylabel('$Y$(kpc)', size=12)
-
 
     x = Gas_location[:,2] # MASK!!
     mask_x=np.abs(x)<5  #5 is the parameter that we can modify 
@@ -128,7 +115,7 @@ for uu in range(1):
     extent2 = Render2.get_extent()
     #divider = make_axes_locatable(ax2)
     #ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True)
+    image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=1.75, vmax=4)
 
     divider = make_axes_locatable(ax2)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
@@ -137,17 +124,6 @@ for uu in range(1):
     #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
     cb.ax.tick_params(labelsize=15)
 
-
-    #cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
-    #cb = fig.colorbar(img2)
-
-    #fig.add_axes(cax)
-
-    #cb = fig.colorbar(img2, cax=cax, orientation="horizontal")
-    #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
-    #cb.ax.tick_params(labelsize=15)
-    #ax1.set_title(labb_tit[uu])
-    #ax2.set_title(labb_tit[uu])
     ax2.set_xlabel('$Y$(kpc)', size=12)
     ax2.set_ylabel('$Z$(kpc)', size=12)
 
@@ -164,7 +140,7 @@ for uu in range(1):
     extent3 = Render.get_extent()
     divider = make_axes_locatable(ax3)
     #ax3.imshow(img3, extent=extent3, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True)
+    image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=1.75, vmax=4)
 
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
@@ -172,15 +148,9 @@ for uu in range(1):
     #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
     cb.ax.tick_params(labelsize=15)
 
-    #cb = fig.colorbar(img3, cax=cax, orientation="horizontal")
-    #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
-    #cb.ax.tick_params(labelsize=15)
-    #ax1.set_title(labb_tit[uu])
-    #ax3.set_title(labb_tit[uu])
     ax3.set_xlabel('$Z$(kpc)', size=12)
     ax3.set_ylabel('$X$(kpc)', size=12)
     
     plt.savefig('/n/home13/nqutob/AGN_Feedback/hdf5_test/snapshot_test.png', dpi = 400, transparent = True,bbox_inches='tight')
- 
-    
+
 pdb.set_trace()
