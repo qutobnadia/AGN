@@ -62,7 +62,6 @@ data = h5py.File("/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_
 for uu in range(1):
 
     ds = yt.load(Dir_path, unit_base=unit_base)
-
   
     BH_Center = data["PartType5"]["Coordinates"][:]
     Gas_location = data["PartType0"]["Coordinates"][:] - BH_Center
@@ -91,39 +90,33 @@ for uu in range(1):
     
     extendd = [-NN,NN,-NN,NN]
 
-    z = Gas_location[:,2]
-    mask_z=np.abs(z)<5  #5 is the parameter that we can modify 
-    Particles1 = sphviewer.Particles(Gas_location[mask_z], Oxygen6_mass[mask_z], hh[mask_z]) 
+    z = Gas_location[:,2] # MASK!!
+    mask_z=np.abs(z)<5  # MASK!!
+    Particles1 = sphviewer.Particles(Gas_location[mask_z], Oxygen6_mass[mask_z], hh[mask_z]) # MASK!!
 
-    Scene1 = sphviewer.Scene(Particles1) # MODIFIED! 
-    Scene.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent=extendd)
+    Scene1 = sphviewer.Scene(Particles1) # MASK!! 
+    Scene.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent=extendd) 
     
-    Render = sphviewer.Render(Scene1)
-    Render.set_logscale()
-    img1 = Render.get_image()
-    extent1 = Render.get_extent()
+    Render1 = sphviewer.Render(Scene1)
+    Render1.set_logscale()
+    img1 = Render1.get_image()
+    extent1 = Render1.get_extent()
     divider = make_axes_locatable(ax1)
 
     #ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
     image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True)
-    divider = make_axes_locatable(ax1)
+    #divider = make_axes_locatable(ax1)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
     cb = fig.colorbar(image1, cax=cax, orientation="horizontal")
     cb.ax.tick_params(labelsize=15)
 
-    #cb = fig.colorbar(img1, cax=cax, orientation="horizontal")
-    #cb = fig.colorbar(img1)
-
-    #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
-    #cb.ax.tick_params(labelsize=15)
-    #ax1.set_title(labb_tit[uu])
     ax1.set_xlabel('$X$(kpc)', size=12)
     ax1.set_ylabel('$Y$(kpc)', size=12)
 
 
-    x = Gas_location[:,2]
-    mask_x=np.abs(z)<5  #5 is the parameter that we can modify 
+    x = Gas_location[:,2] # MASK!!
+    mask_x=np.abs(x)<5  #5 is the parameter that we can modify 
     Particles2 = sphviewer.Particles(Gas_location[mask_x], Oxygen6_mass[mask_x], hh[mask_x]) 
 
     Scene2 = sphviewer.Scene(Particles2) # MODIFIED!
@@ -159,7 +152,7 @@ for uu in range(1):
     ax2.set_ylabel('$Z$(kpc)', size=12)
 
     y = Gas_location[:,2]
-    mask_y=np.abs(z)<5  #5 is the parameter that we can modify 
+    mask_y=np.abs(y)<5  #5 is the parameter that we can modify 
     Particles3 = sphviewer.Particles(Gas_location[mask_y], Oxygen6_mass[mask_y], hh[mask_y]) 
 
     Scene3 = sphviewer.Scene(Particles3) # MODIFIED!
