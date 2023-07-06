@@ -60,7 +60,10 @@ data = h5py.File("/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_
 
 
 for uu in range(1):
-    
+
+    ds = yt.load(Dir_path, unit_base=unit_base)
+
+  
     BH_Center = data["PartType5"]["Coordinates"][:]
     Gas_location = data["PartType0"]["Coordinates"][:] - BH_Center
     Gas_mass = 1e10*data["PartType0"]["Masses"][:]
@@ -69,7 +72,6 @@ for uu in range(1):
     ions_names=['H I','Mg II','C IV','N V','O VI', 'O VII', 'O VIII', 'Ne VIII']  ## Exploration!
     trident.add_ion_fields(ds, ions=ions_names, ftype="PartType0") #PartType0 is for GIZMO and GADGET 
 
-    ds = yt.load(Dir_path, unit_base=unit_base)
     Oxygen6_mass = ds.all_data()[('gas', 'O_p6_mass')].in_units('Msun')
     
     NN = 100
