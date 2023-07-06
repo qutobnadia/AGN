@@ -77,6 +77,7 @@ for uu in range(1):
     NN = 100
     hh = Gas_Softening
 
+    Particles = sphviewer.Particles(Gas_location, Oxygen6_mass, hh)
     Scene = sphviewer.Scene(Particles)
     
     fig = plt.figure(1,figsize=(15,5))
