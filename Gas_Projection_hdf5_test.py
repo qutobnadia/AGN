@@ -129,10 +129,10 @@ for uu in range(1):
     Scene2 = sphviewer.Scene(Particles2) # MODIFIED!
     Scene.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
     
-    Render = sphviewer.Render(Scene2)
-    Render.set_logscale()
-    img2 = Render.get_image()
-    extent2 = Render.get_extent()
+    Render2 = sphviewer.Render(Scene2)
+    Render2.set_logscale()
+    img2 = Render2.get_image()
+    extent2 = Render2.get_extent()
     #divider = make_axes_locatable(ax2)
     #ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
     image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True)
