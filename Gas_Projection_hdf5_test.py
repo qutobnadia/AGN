@@ -70,7 +70,7 @@ for uu in range(1):
     Scene = sphviewer.Scene(Particles)
     
     fig = plt.figure(1,figsize=(15,5))
-    fig.suptitle(r"Precessing kinetic jet with low energy flux: Snapshot #057 with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=1.6)
+    fig.suptitle(r"Precessing kinetic jet with low energy flux: Snapshot #057 with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=1.5)
     plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
     
     ax1 = fig.add_subplot(131)
