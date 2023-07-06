@@ -66,7 +66,7 @@ for uu in range(1):
     Gas_mass = 1e10*data["PartType0"]["Masses"][:]
     Gas_Softening = data["PartType0"]["SmoothingLength"][:]
     
-    ds = yt.load(fname, unit_base=unit_base)
+    ds = yt.load(data, unit_base=unit_base)
     Oxygen6_mass = ds.all_data()[('gas', 'O_p6_mass')].in_units('Msun')
     
     NN = 100
