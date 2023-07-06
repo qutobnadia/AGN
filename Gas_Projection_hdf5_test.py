@@ -12,6 +12,23 @@ import pdb
 from matplotlib.pyplot import cm
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from sphviewer.tools import QuickView
+from glob import glob
+import trident
+
+import yt
+import trident
+from numpy import *
+from yt import *
+yt.enable_parallelism()
+from mpl_toolkits.axes_grid1 import AxesGrid
+#import glob
+from yt import YTQuantity
+from matplotlib.pyplot import *
+from matplotlib.pyplot import cm
+
+unit_base = {'UnitLength_in_cm'         : 3.08568e+21,
+             'UnitMass_in_g'            :   1.989e+43,
+             'UnitVelocity_in_cm_per_s' :      100000}
 
 """
 Here we present some explanations.
@@ -20,10 +37,6 @@ Camera:
     The Camera class is a container that stores the camera parameters. The camera is an object that lives in the space and has spherical coordinates (r,theta,phi), centred around the location (x,y,z). Angles *theta* and *phi* are given in degrees, and enable to rotate the camera along the x-axis and y-axis, respectively. The *roll* angle induces rotations along the line-of-sight, i.e., the z-axis.
 """
 
-
-import matplotlib.pyplot as plt
-import h5py
-from sphviewer.tools import QuickView
 
 ### Interesting toturial: http://alejandrobll.github.io/py-sphviewer/content/tutorial_projections.html
 
@@ -52,6 +65,8 @@ for uu in range(1):
     Gas_location = data["PartType0"]["Coordinates"][:] - BH_Center
     Gas_mass = 1e10*data["PartType0"]["Masses"][:]
     Gas_Softening = data["PartType0"]["SmoothingLength"][:]
+    
+    ds = yt.load(fname, unit_base=unit_base)
     Oxygen6_mass = ds.all_data()[('gas', 'O_p6_mass')].in_units('Msun')
     
     NN = 100
