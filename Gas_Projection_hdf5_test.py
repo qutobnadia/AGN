@@ -55,6 +55,7 @@ data = h5py.File("/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_
 for uu in range(1):
 
     ds = yt.load(Dir_path, unit_base=unit_base)
+    ds.derived_field_list
   
     BH_Center = data["PartType5"]["Coordinates"][:]
     Gas_location = data["PartType0"]["Coordinates"][:] - BH_Center
