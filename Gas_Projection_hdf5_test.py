@@ -84,7 +84,7 @@ for uu in range(1):
     Particles1 = sphviewer.Particles(Gas_location[mask_z], Oxygen6_mass[mask_z], hh[mask_z]) # MASK!!
 
     Scene1 = sphviewer.Scene(Particles1) # MASK!! 
-    Scene.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent=extendd) 
+    Scene1.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent=extendd) 
     
     Render1 = sphviewer.Render(Scene1)
     Render1.set_logscale()
@@ -102,12 +102,12 @@ for uu in range(1):
     ax1.set_xlabel('$X$(kpc)', size=12)
     ax1.set_ylabel('$Y$(kpc)', size=12)
 
-    x = Gas_location[:,2] # MASK!!
+    x = Gas_location[:,0] # MASK!!
     mask_x=np.abs(x)<5  #5 is the parameter that we can modify 
     Particles2 = sphviewer.Particles(Gas_location[mask_x], Oxygen6_mass[mask_x], hh[mask_x]) 
 
     Scene2 = sphviewer.Scene(Particles2) # MODIFIED!
-    Scene.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
+    Scene2.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
     
     Render2 = sphviewer.Render(Scene2)
     Render2.set_logscale()
@@ -127,17 +127,17 @@ for uu in range(1):
     ax2.set_xlabel('$Y$(kpc)', size=12)
     ax2.set_ylabel('$Z$(kpc)', size=12)
 
-    y = Gas_location[:,2]
+    y = Gas_location[:,1]
     mask_y=np.abs(y)<5  #5 is the parameter that we can modify 
     Particles3 = sphviewer.Particles(Gas_location[mask_y], Oxygen6_mass[mask_y], hh[mask_y]) 
 
     Scene3 = sphviewer.Scene(Particles3) # MODIFIED!
-    Scene.update_camera(r='infinity', t=90, p = 0, roll = -90, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
+    Scene3.update_camera(r='infinity', t=90, p = 0, roll = -90, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
 
-    Render = sphviewer.Render(Scene3)
-    Render.set_logscale()
-    img3 = Render.get_image()
-    extent3 = Render.get_extent()
+    Render3 = sphviewer.Render(Scene3)
+    Render3.set_logscale()
+    img3 = Render3.get_image()
+    extent3 = Render3.get_extent()
     divider = make_axes_locatable(ax3)
     #ax3.imshow(img3, extent=extent3, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
     image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=1.75, vmax=4)
