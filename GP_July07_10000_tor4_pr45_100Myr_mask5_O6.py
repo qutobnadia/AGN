@@ -172,7 +172,7 @@ for fname in List_diir:
     mask_y=np.abs(y)<5  #5 is the parameter that we can modify 
     Particles3 = sphviewer.Particles(Gas_location[mask_y], Oxygen5_mass[mask_y], hh[mask_y]) # CHANGE PARAMETER HERE! 
 
-    Scene3 = sphviewer.Scene(Particles3) # MODIFIED!
+    Scene3 = sphviewer.Scene(Particles3)
     Scene3.update_camera(r='infinity', t=90, p = 0, roll = -90, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
 
     Render3 = sphviewer.Render(Scene3)
@@ -200,10 +200,10 @@ for fname in List_diir:
     except:
         pass
 
-    try:
-        os.mkdir(Default_dir_pdf)
-    except:
-        pass
+    #try:
+    #    os.mkdir(Default_dir_pdf)
+    #except:
+    #    pass
     
     plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_10000_tor4_pr45_100Myr_mask5_O6' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
     #plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_10000_tor4_pr45_100Myr_mask_O6' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')

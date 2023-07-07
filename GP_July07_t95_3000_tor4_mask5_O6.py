@@ -200,10 +200,10 @@ for fname in List_diir:
     except:
         pass
 
-    try:
-        os.mkdir(Default_dir_pdf)
-    except:
-        pass
+    #try:
+    #    os.mkdir(Default_dir_pdf)
+    #except:
+    #    pass
     
     plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_t95_3000_tor4_mask5_O6' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
     #plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_t95_3000_tor4_mask_O6' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
