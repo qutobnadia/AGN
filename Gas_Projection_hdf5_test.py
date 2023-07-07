@@ -115,7 +115,7 @@ for uu in range(1):
     extent2 = Render2.get_extent()
     #divider = make_axes_locatable(ax2)
     #ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=1.75, vmax=4)
+    image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=3)
 
     divider = make_axes_locatable(ax2)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
@@ -140,7 +140,7 @@ for uu in range(1):
     extent3 = Render3.get_extent()
     divider = make_axes_locatable(ax3)
     #ax3.imshow(img3, extent=extent3, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=1.75, vmax=4)
+    image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=3)
 
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
