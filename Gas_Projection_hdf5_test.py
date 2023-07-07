@@ -38,8 +38,8 @@ Camera:
 
 ### Interesting toturial: http://alejandrobll.github.io/py-sphviewer/content/tutorial_projections.html
 
-Dir_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_t95_3000_tor4/output/snapshot_057.hdf5'
-data = h5py.File("/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_t95_3000_tor4/output/snapshot_057.hdf5","r")
+Dir_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_t95_3000_tor4/output/snapshot_100.hdf5'
+data = h5py.File("/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_t95_3000_tor4/output/snapshot_100.hdf5","r")
 
 #data.keys()
 #data["PartType0"].keys()
@@ -70,7 +70,7 @@ for uu in range(1):
     Scene = sphviewer.Scene(Particles)
     
     fig = plt.figure(1,figsize=(15,5))
-    fig.suptitle(r"Precessing kinetic jet with low energy flux: Snapshot #057 with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=1.5)
+    fig.suptitle(r"Hot thermal jet with higher energy flux: Snapshot #100 with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=1.5)
     plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
     
     ax1 = fig.add_subplot(131)
@@ -93,7 +93,7 @@ for uu in range(1):
     divider = make_axes_locatable(ax1)
 
     #ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True, vmin=1.75, vmax=4)
+    image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=3)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
     cb = fig.colorbar(image1, cax=cax, orientation="horizontal")
