@@ -33,7 +33,7 @@ unit_base = {'UnitLength_in_cm'         : 3.08568e+21,
 """
 Here we present some explanations.
 
-ADD EXPLANATION HERE
+July 07 2023: In this script I implemented the MASK function so as to better control the thickness of each galaxy slice we are analyzing. 
 
 Camera:
     The Camera class is a container that stores the camera parameters. The camera is an object that lives in the space and has spherical coordinates (r,theta,phi), centred around the location (x,y,z). Angles *theta* and *phi* are given in degrees, and enable to rotate the camera along the x-axis and y-axis, respectively. The *roll* angle induces rotations along the line-of-sight, i.e., the z-axis.
