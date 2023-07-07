@@ -32,6 +32,9 @@ unit_base = {'UnitLength_in_cm'         : 3.08568e+21,
 
 """
 Here we present some explanations.
+
+ADD EXPLANATION HERE
+
 Camera:
     The Camera class is a container that stores the camera parameters. The camera is an object that lives in the space and has spherical coordinates (r,theta,phi), centred around the location (x,y,z). Angles *theta* and *phi* are given in degrees, and enable to rotate the camera along the x-axis and y-axis, respectively. The *roll* angle induces rotations along the line-of-sight, i.e., the z-axis.
 """
@@ -61,7 +64,7 @@ for uu in range(1):
     ions_names=['H I','Mg II','C IV','N V','O VI', 'O VII', 'O VIII', 'Ne VIII']  ## Exploration!
     trident.add_ion_fields(ds, ions=ions_names, ftype="PartType0") #PartType0 is for GIZMO and GADGET 
 
-    Oxygen6_mass = ds.all_data()[('gas', 'O_p6_mass')].in_units('Msun')
+    Oxygen6_mass = ds.all_data()[('gas', 'O_p7_mass')].in_units('Msun')
     
     NN = 100
     hh = Gas_Softening
@@ -70,7 +73,7 @@ for uu in range(1):
     Scene = sphviewer.Scene(Particles)
     
     fig = plt.figure(1,figsize=(15,5))
-    fig.suptitle(r"Hot thermal jet with higher energy flux: Snapshot #100 with Gas_mass and O6_ion_Fraction", fontsize=17, x=0.5, y=1.5)
+    fig.suptitle(r"Hot thermal jet with higher energy flux: Snapshot #100 with Gas_mass and O8_ion_Fraction", fontsize=17, x=0.5, y=1.5)
     plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
     
     ax1 = fig.add_subplot(131)
