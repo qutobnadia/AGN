@@ -55,7 +55,7 @@ Camera:
 """
 # you could put a for loop here that replaces 'm12_mcvt_m2_10000_tor4_pr45_100Myr' with whaterver directories are in /hernquist_lab/AGN_Feedback_Fire then goes to the 'output' folder in each 
 print("Checkpoint 0")
-Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_t95_3000_tor4/output/'
+Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_10000_tor4_pr45_100Myr/output/'
 
 diir = glob(Directory_path + '*.hdf5')
 
@@ -100,17 +100,17 @@ for fname in List_diir:
     Oxygen5_mass = ds.all_data()[('gas', 'O_p5_mass')].in_units('Msun') # should give Msun/kpc^2 
     Oxygen6_mass = ds.all_data()[('gas', 'O_p6_mass')].in_units('Msun')
     Oxygen7_mass = ds.all_data()[('gas', 'O_p7_mass')].in_units('Msun')
-    # Magnesium goes here
+    #Magnesium2_mass = ds.all_data()[('gas', 'Mg_p1_mass')].in_units('Msun')
     print("Checkpoint 2")
     
     NN = 100 # this defines the x, y, and z axis ranges for the plots 
     hh = Gas_Softening #what does gas softening mean?
 
-    Particles = sphviewer.Particles(Gas_location, Oxygen5_mass, hh) # CHANGE PARAMETER HERE!
-    Scene = sphviewer.Scene(Particles) 
+    Particles = sphviewer.Particles(Gas_location, Oxygen7_mass, hh) # CHANGE PARAMETER HERE! 
+    Scene = sphviewer.Scene(Particles)
     
     fig = plt.figure(1,figsize=(15,5))
-    fig.suptitle(r"Hot thermal jet with higher energy flux : Snapshot #" + str(sorted[oo]+1) + " with O6 Mass & Mask 200", fontsize=17, x=0.5, y=1.5) #set a figure title on top
+    fig.suptitle(r"Precessing kinetic jet with higher energy flux : Snapshot #" + str(sorted[oo]+1) + " with O8 Mass & Mask 5", fontsize=17, x=0.5, y=1.5) #set a figure title on top
     plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
     
     ax1 = fig.add_subplot(131)
@@ -118,11 +118,11 @@ for fname in List_diir:
     ax3 = fig.add_subplot(133)
     
     extendd = [-NN,NN,-NN,NN]
-    
+     
     # Begin Masking
     z = Gas_location[:,2] 
-    mask_z = np.abs(z)<200 # 5 is the parameter that we can modify 
-    Particles1 = sphviewer.Particles(Gas_location[mask_z], Oxygen5_mass[mask_z], hh[mask_z]) # CHANGE PARAMETER HERE! 
+    mask_z = np.abs(z)<5 # 5 is the parameter that we can modify 
+    Particles1 = sphviewer.Particles(Gas_location[mask_z], Oxygen7_mass[mask_z], hh[mask_z]) # CHANGE PARAMETER HERE! 
 
     Scene1 = sphviewer.Scene(Particles1) 
     Scene1.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent=extendd) 
@@ -144,8 +144,8 @@ for fname in List_diir:
     ax1.set_ylabel('$Y$(kpc)', size=12)
 
     x = Gas_location[:,0] 
-    mask_x=np.abs(x)<200  # 5 is the parameter that we can modify 
-    Particles2 = sphviewer.Particles(Gas_location[mask_x], Oxygen5_mass[mask_x], hh[mask_x]) # CHANGE PARAMETER HERE! 
+    mask_x=np.abs(x)<5  # 5 is the parameter that we can modify 
+    Particles2 = sphviewer.Particles(Gas_location[mask_x], Oxygen7_mass[mask_x], hh[mask_x]) # CHANGE PARAMETER HERE! 
 
     Scene2 = sphviewer.Scene(Particles2) # MODIFIED!
     Scene2.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
@@ -169,10 +169,10 @@ for fname in List_diir:
     ax2.set_ylabel('$Z$(kpc)', size=12)
 
     y = Gas_location[:,1]
-    mask_y=np.abs(y)<200  #5 is the parameter that we can modify 
-    Particles3 = sphviewer.Particles(Gas_location[mask_y], Oxygen5_mass[mask_y], hh[mask_y]) # CHANGE PARAMETER HERE! 
+    mask_y=np.abs(y)<5  #5 is the parameter that we can modify 
+    Particles3 = sphviewer.Particles(Gas_location[mask_y], Oxygen7_mass[mask_y], hh[mask_y]) # CHANGE PARAMETER HERE! 
 
-    Scene3 = sphviewer.Scene(Particles3) # MODIFIED!
+    Scene3 = sphviewer.Scene(Particles3)
     Scene3.update_camera(r='infinity', t=90, p = 0, roll = -90, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
 
     Render3 = sphviewer.Render(Scene3)
@@ -192,8 +192,8 @@ for fname in List_diir:
     ax3.set_xlabel('$Z$(kpc)', size=12)
     ax3.set_ylabel('$X$(kpc)', size=12)
     
-    Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 't95_3000_tor4_mask200_O6'
-    #Default_dir_pdf = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_t95_3000_tor4_mask_pdf'
+    Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + '10000_tor4_pr45_100Myr_mask5_O8'
+    #Default_dir_pdf = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_10000_tor4_pr45_100Myr_mask_pdf'
 
     try:
         os.mkdir(Default_dir)
@@ -205,8 +205,8 @@ for fname in List_diir:
     #except:
     #    pass
     
-    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_t95_3000_tor4_mask200_O6' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
-    #plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_t95_3000_tor4_mask_O6' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
+    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_10000_tor4_pr45_100Myr_mask5_O8' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
+    #plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_10000_tor4_pr45_100Myr_mask_O6' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
 
     plt.close()
     oo += 1

@@ -110,7 +110,7 @@ for fname in List_diir:
     Scene = sphviewer.Scene(Particles)
     
     fig = plt.figure(1,figsize=(15,5))
-    fig.suptitle(r"Hot thermal jet but with lower energy flux: Snapshot #" + str(sorted[oo]+1) + " with O7 Mass & Mask 200", fontsize=17, x=0.5, y=1.5) #set a figure title on top
+    fig.suptitle(r"Hot thermal jet but with lower energy flux: Snapshot #" + str(sorted[oo]+1) + " with O6 Mass & Mask 200", fontsize=17, x=0.5, y=1.5) #set a figure title on top
     plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
     
     ax1 = fig.add_subplot(131)
@@ -145,7 +145,7 @@ for fname in List_diir:
 
     x = Gas_location[:,0] 
     mask_x=np.abs(x)<200  # 5 is the parameter that we can modify 
-    Particles2 = sphviewer.Particles(Gas_location[mask_x], Oxygen6_mass[mask_x], hh[mask_x]) # CHANGE PARAMETER HERE! 
+    Particles2 = sphviewer.Particles(Gas_location[mask_x], Oxygen5_mass[mask_x], hh[mask_x]) # CHANGE PARAMETER HERE! 
 
     Scene2 = sphviewer.Scene(Particles2) 
     Scene2.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
@@ -170,7 +170,7 @@ for fname in List_diir:
 
     y = Gas_location[:,1]
     mask_y=np.abs(y)<200  #5 is the parameter that we can modify 
-    Particles3 = sphviewer.Particles(Gas_location[mask_y], Oxygen6_mass[mask_y], hh[mask_y]) # CHANGE PARAMETER HERE! 
+    Particles3 = sphviewer.Particles(Gas_location[mask_y], Oxygen5_mass[mask_y], hh[mask_y]) # CHANGE PARAMETER HERE! 
 
     Scene3 = sphviewer.Scene(Particles3) # MODIFIED!
     Scene3.update_camera(r='infinity', t=90, p = 0, roll = -90, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
