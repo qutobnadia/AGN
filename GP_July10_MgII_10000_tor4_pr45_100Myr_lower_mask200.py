@@ -91,15 +91,22 @@ for fname in List_diir:
     
     # this is where I started adding additional parameters
     ds = yt.load(fname, unit_base=unit_base) 
+    print("Checkpoint 1A")
     #ds.derived_field_list # This displays all the different parameters that I can customize 
     ions_names=['H I','Mg II','C IV','N V','O VI', 'O VII', 'O VIII', 'Ne VIII']  ## Exploration!
+    print("Checkpoint 1B")
     # I think that if we include the number (I, II, III etc) then it only analyzes that singlular ion, but if you include just the atom name (H, C, O, etc.) then it will inlcude all ions from that element 
     trident.add_ion_fields(ds, ions=ions_names, ftype="PartType0") #PartType0 is for GIZMO and GADGET 
+    print("Checkpoint 1C")
 
     mass = Gas_mass
+    print("Checkpoint 1D")
     Oxygen5_mass = ds.all_data()[('gas', 'O_p5_mass')].in_units('Msun') # should give Msun/kpc^2 
+    print("Checkpoint 1E")
     Oxygen6_mass = ds.all_data()[('gas', 'O_p6_mass')].in_units('Msun')
+    print("Checkpoint 1F")
     Oxygen7_mass = ds.all_data()[('gas', 'O_p7_mass')].in_units('Msun')
+    print("Checkpoint 1G")
     Magnesium2_mass = ds.all_data()[('gas', 'Mg_p1_mass')].in_units('Msun') # THIS IS A GUESS, REVISE! 
     print("Checkpoint 2")
     
