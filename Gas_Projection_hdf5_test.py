@@ -70,7 +70,7 @@ for uu in range(1):
     Oxygen5_mass = ds.all_data()[('gas', 'O_p5_mass')].in_units('Msun') # should give Msun/kpc^2 
     Oxygen6_mass = ds.all_data()[('gas', 'O_p6_mass')].in_units('Msun')
     Oxygen7_mass = ds.all_data()[('gas', 'O_p7_mass')].in_units('Msun')
-    Magnesium2_mass = ds.all_data()[('gas', 'Mg_nuclei_mass_density')].in_units('Msun') # THIS IS A GUESS, REVISE! 
+    Magnesium2_mass = ds.all_data()[('gas', 'Mg_p1_mass')].in_units('Msun') # THIS IS A GUESS, REVISE! 
     
     NN = 100
     hh = Gas_Softening
