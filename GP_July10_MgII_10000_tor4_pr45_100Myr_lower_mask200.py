@@ -101,7 +101,7 @@ for fname in List_diir:
 
     mass = Gas_mass
     print("Checkpoint 1D")
-    Oxygen5_mass = ds.all_data()[('gas', 'O_p5_mass')].in_units('Msun') # should give Msun/kpc^2 
+    #Oxygen5_mass = ds.all_data()[('gas', 'O_p5_mass')].in_units('Msun') # should give Msun/kpc^2 
     print("Checkpoint 1E")
     Oxygen6_mass = ds.all_data()[('gas', 'O_p6_mass')].in_units('Msun')
     print("Checkpoint 1F")
