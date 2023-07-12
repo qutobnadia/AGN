@@ -61,6 +61,10 @@ diir = glob(Directory_path + '*.hdf5')
 
 List_diir = np.atleast_1d(diir)
 snap_order = []
+List_diir_image = []
+
+List_diir = np.atleast_1d(diir)
+snap_order = []
 for ii in range(len(List_diir)): 
     AA = List_diir[ii]
     snap_ii = int(AA[AA.find('snapshot_')+len('snapshot_'):AA.find('.hdf5')])
