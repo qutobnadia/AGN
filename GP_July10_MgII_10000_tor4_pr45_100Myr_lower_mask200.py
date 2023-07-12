@@ -99,7 +99,7 @@ for fname in List_diir:
     trident.add_ion_fields(ds, ions=ions_names, ftype="PartType0") #PartType0 is for GIZMO and GADGET 
     print("Checkpoint 1C")
 
-    mass = Gas_mass
+    #mass = Gas_mass
     print("Checkpoint 1D")
     #Oxygen5_mass = ds.all_data()[('gas', 'O_p5_mass')].in_units('Msun') # should give Msun/kpc^2 
     print("Checkpoint 1E")
