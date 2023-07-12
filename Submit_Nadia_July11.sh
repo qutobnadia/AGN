@@ -5,7 +5,7 @@
 #SBATCH -p shared
 #SBATCH --mem 100G
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=razieh.emami_meibody@cfa.harvard.edu
+#SBATCH --mail-user=nadia.qutob@cfa.harvard.edu
 #SBATCH -o myoutput.out  # File to which STDOUT will be written, %j inserts jobid
 #SBATCH -e myerrors.err  # File to which STDERR will be written, %j inserts jobid
 
