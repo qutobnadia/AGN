@@ -75,11 +75,11 @@ for uu in range(1):
     NN = 100
     hh = Gas_Softening
 
-    Particles = sphviewer.Particles(Gas_location, Magnesium2_mass, hh)
+    Particles = sphviewer.Particles(Gas_location, mass, hh)
     Scene = sphviewer.Scene(Particles)
     
     fig = plt.figure(1,figsize=(15,5))
-    fig.suptitle(r"Hot thermal jet with higher energy flux: Snapshot #100 with MgII_ion_Fraction", fontsize=17, x=0.5, y=1.5)
+    fig.suptitle(r"Hot thermal jet with higher energy flux: Snapshot #100 with mass density", fontsize=17, x=0.5, y=1.5)
     plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
     
     ax1 = fig.add_subplot(131)
@@ -90,7 +90,7 @@ for uu in range(1):
 
     z = Gas_location[:,2] # MASK!!
     mask_z=np.abs(z)<5  # MASK!!
-    Particles1 = sphviewer.Particles(Gas_location[mask_z], Magnesium2_mass[mask_z], hh[mask_z]) # MASK!!
+    Particles1 = sphviewer.Particles(Gas_location[mask_z], mass[mask_z], hh[mask_z]) # MASK!!
 
     Scene1 = sphviewer.Scene(Particles1) # MASK!! 
     Scene1.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent=extendd) 
@@ -102,7 +102,7 @@ for uu in range(1):
     divider = make_axes_locatable(ax1)
 
     #ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
+    image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
     cb = fig.colorbar(image1, cax=cax, orientation="horizontal")
@@ -113,7 +113,7 @@ for uu in range(1):
 
     x = Gas_location[:,0] # MASK!!
     mask_x=np.abs(x)<5  #5 is the parameter that we can modify 
-    Particles2 = sphviewer.Particles(Gas_location[mask_x], Magnesium2_mass[mask_x], hh[mask_x]) 
+    Particles2 = sphviewer.Particles(Gas_location[mask_x], mass[mask_x], hh[mask_x]) 
 
     Scene2 = sphviewer.Scene(Particles2) # MODIFIED!
     Scene2.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
@@ -124,7 +124,7 @@ for uu in range(1):
     extent2 = Render2.get_extent()
     #divider = make_axes_locatable(ax2)
     #ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
+    image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True)
 
     divider = make_axes_locatable(ax2)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
@@ -138,7 +138,7 @@ for uu in range(1):
 
     y = Gas_location[:,1]
     mask_y=np.abs(y)<5  #5 is the parameter that we can modify 
-    Particles3 = sphviewer.Particles(Gas_location[mask_y], Magnesium2_mass[mask_y], hh[mask_y]) 
+    Particles3 = sphviewer.Particles(Gas_location[mask_y], mass[mask_y], hh[mask_y]) 
 
     Scene3 = sphviewer.Scene(Particles3) # MODIFIED!
     Scene3.update_camera(r='infinity', t=90, p = 0, roll = -90, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
@@ -149,7 +149,7 @@ for uu in range(1):
     extent3 = Render3.get_extent()
     divider = make_axes_locatable(ax3)
     #ax3.imshow(img3, extent=extent3, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
+    image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True)
 
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
