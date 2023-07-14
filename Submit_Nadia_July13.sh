@@ -18,11 +18,6 @@ python GP_July10_t95_3000_tor4_mask200_mass.py &
 python GP_July10_t95_3000_tor4_lower_mask5_mass.py &
 python GP_July10_t95_3000_tor4_lower_mask200_mass.py &
 
-python 10000_tor4_pr45_100Myr_mask5_mass.py &
-python 10000_tor4_pr45_100Myr_mask200_mass.py &
-python 10000_tor4_pr45_100Myr_lower_mask5_mass.py &
-python 10000_tor4_pr45_100Myr_lower_mask200_mass.py &
-
 
 wait 
 
