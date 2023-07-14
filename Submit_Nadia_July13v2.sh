@@ -13,15 +13,10 @@ module load gcc/10.2.0-fasrc01
 module load hdf5/1.10.7-fasrc01
 module load python/3.10.9-fasrc01
 
-python GP_July10_t95_3000_tor4_lower_mask5_Mg2.py &
-python GP_July10_t95_3000_tor4_lower_mask200_Mg2.py &
-python GP_July10_t95_3000_tor4_mask5_Mg2.py &
-python GP_July10_t95_3000_tor4_mask200_Mg2.py &
-
-python GP_July10_10000_tor4_pr45_100Myr_lower_mask5_Mg2.py &
-python GP_July10_10000_tor4_pr45_100Myr_lower_mask200_Mg2.py &
-python GP_July10_10000_tor4_pr45_100Myr_mask5_Mg2.py &
-python GP_July10_10000_tor4_pr45_100Myr_mask200_Mg2.py &
+python 10000_tor4_pr45_100Myr_mask5_mass.py &
+python 10000_tor4_pr45_100Myr_mask200_mass.py &
+python 10000_tor4_pr45_100Myr_lower_mask5_mass.py &
+python 10000_tor4_pr45_100Myr_lower_mask200_mass.py &
 
 
 wait 
