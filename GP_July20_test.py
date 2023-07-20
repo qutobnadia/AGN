@@ -92,21 +92,29 @@ for fname in List_diir:
     # this is where I started adding additional parameters
     ds = yt.load(fname, unit_base=unit_base) 
     #ds.derived_field_list # This displays all the different parameters that I can customize 
-    ions_names=['H I','Mg II','C IV','N V','O VI', 'O VII', 'O VIII', 'Ne VIII']  ## Exploration!
+    ions_names=['H I','Mg II','C IV','N V','O VI', 'O VII', 'O VIII', 'Ne VIII', 'Fe I']  ## Exploration!
     # I think that if we include the number (I, II, III etc) then it only analyzes that singlular ion, but if you include just the atom name (H, C, O, etc.) then it will inlcude all ions from that element 
     trident.add_ion_fields(ds, ions=ions_names, ftype="PartType0") #PartType0 is for GIZMO and GADGET 
 
-    mass = Gas_mass
-    Oxygen5_mass = ds.all_data()[('gas', 'O_p5_mass')].in_units('Msun') # should give Msun/kpc^2 
-    Oxygen6_mass = ds.all_data()[('gas', 'O_p6_mass')].in_units('Msun')
-    Oxygen7_mass = ds.all_data()[('gas', 'O_p7_mass')].in_units('Msun')
-    # Magnesium goes here
-    print("Checkpoint 2")
+    # Trying to make a loop for all the different element isotopes 
+    uu = 
+    for uu in 
+      mass = Gas_mass
+      Oxygen5_mass = ds.all_data()[('gas', 'O_p5_mass')].in_units('Msun') # should give Msun/kpc^2 
+      Oxygen6_mass = ds.all_data()[('gas', 'O_p6_mass')].in_units('Msun')
+      Oxygen7_mass = ds.all_data()[('gas', 'O_p7_mass')].in_units('Msun')
+      Magnesium2_mass = ds.all_data()[('gas', 'Mg_p1_mass')].in_units('Msun')
+      Iron = ds.all_data()[('gas', 'Fe_p1_mass')].in_units('Msun')
+      print("Checkpoint 2")
     
     NN = 100 # this defines the x, y, and z axis ranges for the plots 
     hh = Gas_Softening #what does gas softening mean?
 
-    Particles = sphviewer.Particles(Gas_location, Oxygen7_mass, hh) # CHANGE PARAMETER HERE!
+    #List of changable parameters between runs: 
+    isotope = Oxygen5_mass #choose one from: mass, Oxygen5_mass, Oxygen6_mass, Oxygen7_mass, Magnesium2_mass, Iron
+    mask = 5 # choose from 5 or 200 
+
+    Particles = sphviewer.Particles(Gas_location, isotope, hh) # CHANGE PARAMETER HERE!
     Scene = sphviewer.Scene(Particles)
     
     fig = plt.figure(1,figsize=(15,5))
@@ -121,7 +129,7 @@ for fname in List_diir:
     
     # Begin Masking
     z = Gas_location[:,2] 
-    mask_z = np.abs(z)<200 # 5 is the parameter that we can modify 
+    mask_z = np.abs(z)<mask # 5 is the parameter that we can modify 
     Particles1 = sphviewer.Particles(Gas_location[mask_z], Oxygen7_mass[mask_z], hh[mask_z]) # CHANGE PARAMETER HERE! 
 
     Scene1 = sphviewer.Scene(Particles1) 
@@ -144,7 +152,7 @@ for fname in List_diir:
     ax1.set_ylabel('$Y$(kpc)', size=12)
 
     x = Gas_location[:,0] 
-    mask_x=np.abs(x)<200  # 5 is the parameter that we can modify 
+    mask_x=np.abs(x)<mask # 5 is the parameter that we can modify 
     Particles2 = sphviewer.Particles(Gas_location[mask_x], Oxygen7_mass[mask_x], hh[mask_x]) # CHANGE PARAMETER HERE! 
 
     Scene2 = sphviewer.Scene(Particles2)
@@ -169,7 +177,7 @@ for fname in List_diir:
     ax2.set_ylabel('$Z$(kpc)', size=12)
 
     y = Gas_location[:,1]
-    mask_y=np.abs(y)<200  #5 is the parameter that we can modify 
+    mask_y=np.abs(y)<mask  #5 is the parameter that we can modify 
     Particles3 = sphviewer.Particles(Gas_location[mask_y], Oxygen7_mass[mask_y], hh[mask_y]) # CHANGE PARAMETER HERE! 
 
     Scene3 = sphviewer.Scene(Particles3) # MODIFIED!
@@ -205,7 +213,7 @@ for fname in List_diir:
     #except:
     #    pass
     
-    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_10000_tor4_pr45_100Myr_lower_mask200_O8' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
+    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_10000_tor4_pr45_100Myr_lower_mask'+ mask + '_' + isotope + '.png', dpi = 600, transparent = True, bbox_inches='tight')
     #plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_10000_tor4_pr45_100Myr_lower_mask_O6' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
 
     plt.close()
