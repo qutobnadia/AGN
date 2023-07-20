@@ -192,7 +192,7 @@ for fname in List_diir:
     ax3.set_xlabel('$Z$(kpc)', size=12)
     ax3.set_ylabel('$X$(kpc)', size=12)
     
-    Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_t7_3000_tor3_CR10_t4_mask200_Mg2'
+    Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'CR_mask200_Mg2'
     #Default_dir_pdf = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_default_64_mask200_pdf'
 
     try:
@@ -205,7 +205,7 @@ for fname in List_diir:
     #except:
     #    pass
     
-    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_t7_3000_tor3_CR10_t4_mask200_Mg2' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
+    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_CR_mask200_Mg2' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
     #plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_t7_3000_tor3_CR10_t4_mask200_Mg2' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
 
     plt.close()
