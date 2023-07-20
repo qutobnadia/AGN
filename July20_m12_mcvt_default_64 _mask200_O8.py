@@ -55,7 +55,7 @@ Camera:
 """
 # you could put a for loop here that replaces 'm12_mcvt_default_64 ' with whaterver directories are in /hernquist_lab/AGN_Feedback_Fire then goes to the 'output' folder in each 
 print("Checkpoint 0")
-Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_default_64 /output/'
+Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_default_64/output/'
 
 diir = glob(Directory_path + '*.hdf5')
 
@@ -110,7 +110,7 @@ for fname in List_diir:
     Scene = sphviewer.Scene(Particles)
     
     fig = plt.figure(1,figsize=(15,5))
-    fig.suptitle(r"Precessing kinetic jet with low energy flux : Snapshot #" + str(sorted[oo]+1) + " with O8 Mass & Mask 200", fontsize=17, x=0.5, y=1.5) #set a figure title on top
+    fig.suptitle(r"No jet : Snapshot #" + str(sorted[oo]+1) + " with O8 Mass & Mask 200", fontsize=17, x=0.5, y=1.5) #set a figure title on top
     plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
     
     ax1 = fig.add_subplot(131)
