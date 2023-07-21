@@ -17,9 +17,9 @@ elementName = "O8"  # choose from:
                 # YOU HAVE TO COPY THE NAME DIRECTLY!!!!!
 mask = 200 # choose from: 5, 200 
 
-print("Jet type: " + jetType)
+print("Jet Type: " + jetType)
 print("Isotope: " + elementName)
-print(mask)
+print("Mask: " + mask)
 
 import matplotlib
 matplotlib.use('Agg')
