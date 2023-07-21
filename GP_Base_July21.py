@@ -65,7 +65,7 @@ elif jetType == "Precessing kinetic jet with higher energy flux":
 elif jetType == "Hot thermal jet with lower flux":
       jet == "m12_mcvt_m2_t95_3000_tor4_lower"
 elif jetType == "Hot thermal jet with higher energy flux":
-      jet == m12_mcvt_m2_t95_3000_tor4
+      jet = m12_mcvt_m2_t95_3000_tor4
 elif jetType == "Cosmic ray jet with lower energy flux":
       jet == "m12_mcvt_m2_t7_3000_tor3_CR10_t4_lower"
 elif jetType == "Cosmic ray jet with higher energy flux":
