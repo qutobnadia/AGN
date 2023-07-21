@@ -83,20 +83,20 @@ List_diir_image = []
 List_diir = np.atleast_1d(diir)
 snap_order = []
 for ii in range(len(List_diir)): 
-        AA = List_diir[ii]
-        snap_ii = int(AA[AA.find('snapshot_')+len('snapshot_'):AA.find('.hdf5')])
-        snap_order = np.append(snap_order, [snap_ii])
-        List_diir_image = np.append(List_diir_image, List_diir[ii])
+            AA = List_diir[ii]
+            snap_ii = int(AA[AA.find('snapshot_')+len('snapshot_'):AA.find('.hdf5')])
+            snap_order = np.append(snap_order, [snap_ii])
+            List_diir_image = np.append(List_diir_image, List_diir[ii])
         # add txt conversion line later! 
-        print("Checkpoint 0B")
+            print("Checkpoint 0B")
     # this puts the snapshots in the correct numerical order when they are runa nd saved 
-    int_snap = snap_order.astype(int) 
-    sorted = np.sort(int_snap)
-    List_diir = List_diir_image[np.argsort(int_snap)]
-    print("Checkpoint 0C")
+int_snap = snap_order.astype(int) 
+sorted = np.sort(int_snap)
+List_diir = List_diir_image[np.argsort(int_snap)]
+print("Checkpoint 0C")
     
-    oo = 0
-    for fname in List_diir:
+oo = 0
+for fname in List_diir:
         data = h5py.File(fname,"r")
         BH_Center = data["PartType5"]["Coordinates"][:]
         print(BH_Center)
