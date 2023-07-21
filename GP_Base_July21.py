@@ -1,4 +1,4 @@
-jetType =   # choose from: 
+jetType = "Hot thermal jet with higher flux"  # choose from: 
             # "Precessing kinetic jet with lower energy flux" 
             # "Precessing kinetic jet with higher energy flux" 
             # "Hot thermal jet with higher flux"
@@ -7,7 +7,7 @@ jetType =   # choose from:
             # "Cosmic ray jet with lower energy flux"
             # "Cosmic ray jet with higher energy flux" 
             # YOU HAVE TO COPY THE NAME DIRECTLY!!!!!
-elementName =   # choose from: 
+elementName = "O8"  # choose from: 
                 # "mass"
                 # "O6"
                 # "O8"
@@ -15,7 +15,7 @@ elementName =   # choose from:
                 # "Fe"
                 # "Temperature" 
                 # YOU HAVE TO COPY THE NAME DIRECTLY!!!!!
-mask =   # choose from: 5, 200 
+mask = 200 # choose from: 5, 200 
 
 print("Jet type: " + jetType)
 print("Isotope: " + elementName)
