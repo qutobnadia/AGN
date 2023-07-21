@@ -58,31 +58,31 @@ unit_base = {'UnitLength_in_cm'         : 3.08568e+21,
 print("Checkpoint 0")
 
 # Define how to actaully call the file directory for each jet type 
-    if jetType = "Precessing kinetic jet with lower energy flux"
+if jetType = "Precessing kinetic jet with lower energy flux"
       jet = "m12_mcvt_m2_10000_tor4_pr45_100Myr_lower"
-    elif jetType = "Precessing kinetic jet with higher energy flux"
+elif jetType = "Precessing kinetic jet with higher energy flux"
       jet = "m12_mcvt_m2_10000_tor4_pr45_100Myr"
-    elif jetType = "Hot thermal jet with higher lower flux"
+elif jetType = "Hot thermal jet with higher lower flux"
       jet = "m12_mcvt_m2_t95_3000_tor4_lower"
-    elif jetType = "m12_mcvt_m2_t95_3000_tor4"
+elif jetType = "m12_mcvt_m2_t95_3000_tor4"
       jet = "Hot thermal jet with higher energy flux"
-    elif jetType = "No Jet"
+elif jetType = "No Jet"
       jet = "m12_mcvt_default_64"
-    elif jetType = "Cosmic ray jet with lower energy flux"
+elif jetType = "Cosmic ray jet with lower energy flux"
       jet = "m12_mcvt_m2_t7_3000_tor3_CR10_t4_lower"
-    else jetType = "Cosmic ray jet with higher energy flux"
+else jetType = "Cosmic ray jet with higher energy flux"
       jet = "m12_mcvt_m2_t7_3000_tor3_CR10_t4"
     
-    Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/' + jet + '/output/'
-    diir = glob(Directory_path + '*.hdf5')
+Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/' + jet + '/output/'
+diir = glob(Directory_path + '*.hdf5')
     
-    List_diir = np.atleast_1d(diir)
-    snap_order = []
-    List_diir_image = []
+List_diir = np.atleast_1d(diir)
+snap_order = []
+List_diir_image = []
     
-    List_diir = np.atleast_1d(diir)
-    snap_order = []
-    for ii in range(len(List_diir)): 
+List_diir = np.atleast_1d(diir)
+snap_order = []
+for ii in range(len(List_diir)): 
         AA = List_diir[ii]
         snap_ii = int(AA[AA.find('snapshot_')+len('snapshot_'):AA.find('.hdf5')])
         snap_order = np.append(snap_order, [snap_ii])
