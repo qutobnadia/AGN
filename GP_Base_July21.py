@@ -59,13 +59,13 @@ print("Checkpoint 0")
 
 # Define how to actaully call the file directory for each jet type 
 if jetType == "Precessing kinetic jet with lower energy flux":
-      jet == "m12_mcvt_m2_10000_tor4_pr45_100Myr_lower"
+      jet == m12_mcvt_m2_10000_tor4_pr45_100Myr_lower
 elif jetType == "Precessing kinetic jet with higher energy flux":
-      jet == "m12_mcvt_m2_10000_tor4_pr45_100Myr"
-elif jetType == "Hot thermal jet with higher lower flux":
+      jet == m12_mcvt_m2_10000_tor4_pr45_100Myr
+elif jetType == "Hot thermal jet with lower flux":
       jet == "m12_mcvt_m2_t95_3000_tor4_lower"
-elif jetType == "m12_mcvt_m2_t95_3000_tor4":
-      jet == "Hot thermal jet with higher energy flux" 
+elif jetType == "Hot thermal jet with higher energy flux":
+      jet == m12_mcvt_m2_t95_3000_tor4
 elif jetType == "Cosmic ray jet with lower energy flux":
       jet == "m12_mcvt_m2_t7_3000_tor3_CR10_t4_lower"
 elif jetType == "Cosmic ray jet with higher energy flux":
