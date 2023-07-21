@@ -132,14 +132,13 @@ print("Checkpoint 0")
             element = Magnesium2_mass
           else elementName = ["Fe"]
             element = Iron_mass
-          
-            
+                      
           NN = 100 # this defines the x, y, and z axis ranges for the plots 
           hh = Gas_Softening #what does gas softening mean?
                     
           Particles = sphviewer.Particles(Gas_location, element, hh) # CHANGE PARAMETER HERE!
           Scene = sphviewer.Scene(Particles)
-            
+
             fig = plt.figure(1,figsize=(15,5))
             fig.suptitle(r" " + jetType + " : Snapshot #" + str(sorted[oo]+1) + " with " + elementType + " Mass & Mask " + mask, fontsize=17, x=0.5, y=1.5) #set a figure title on top
             plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
