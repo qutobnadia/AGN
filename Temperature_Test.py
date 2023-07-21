@@ -101,7 +101,7 @@ for fname in List_diir:
     Oxygen6_mass = ds.all_data()[('gas', 'O_p6_mass')].in_units('Msun')
     Oxygen7_mass = ds.all_data()[('gas', 'O_p7_mass')].in_units('Msun')
     # Magnesium goes here
-    temperature = ds.all_data()[('PartType0', 'temperature')].in_units('Msun')
+    temperature = ds.all_data()[('PartType0', 'temperature')].in_units('K')
 
     print("Checkpoint 2")
     
