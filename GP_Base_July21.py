@@ -70,7 +70,7 @@ elif jetType == "No Jet":
       jet == "m12_mcvt_default_64"
 elif jetType == "Cosmic ray jet with lower energy flux":
       jet == "m12_mcvt_m2_t7_3000_tor3_CR10_t4_lower"
-else jetType == "Cosmic ray jet with higher energy flux" :
+else jetType := "Cosmic ray jet with higher energy flux":
       jet == "m12_mcvt_m2_t7_3000_tor3_CR10_t4"
     
 Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/' + jet + '/output/'
