@@ -58,7 +58,7 @@ unit_base = {'UnitLength_in_cm'         : 3.08568e+21,
 print("Checkpoint 0")
 
 # Define how to actaully call the file directory for each jet type 
-if jetType == "Precessing kinetic jet with lower energy flux":
+if jetType := "Precessing kinetic jet with lower energy flux":
       jet == "m12_mcvt_m2_10000_tor4_pr45_100Myr_lower"
 elif jetType == "Precessing kinetic jet with higher energy flux":
       jet == "m12_mcvt_m2_10000_tor4_pr45_100Myr"
