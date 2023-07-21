@@ -73,7 +73,7 @@ elif jetType == "Cosmic ray jet with higher energy flux":
 else:
       jet == "m12_mcvt_default_64"
     
-Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/' + print(jet) + '/output/'
+Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/' + str(jet) + '/output/'
 diir = glob(Directory_path + '*.hdf5')
     
 List_diir = np.atleast_1d(diir)
