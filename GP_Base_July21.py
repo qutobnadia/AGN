@@ -1,4 +1,4 @@
-jetType = "Hot thermal jet with higher flux"  # choose from: 
+jetType = 'Hot thermal jet with higher flux'  # choose from: 
             # "Precessing kinetic jet with lower energy flux" 
             # "Precessing kinetic jet with higher energy flux" 
             # "Hot thermal jet with higher flux"
