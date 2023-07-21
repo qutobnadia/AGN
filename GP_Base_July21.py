@@ -227,20 +227,20 @@ for fname in List_diir:
         Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + jet + '_mask' + mask + '_' + elementName 
         #Default_dir_pdf = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_10000_tor4_pr45_100Myr_lower_mask_pdf'
         
-            try:
-                os.mkdir(Default_dir)
-            except:
-                pass
+        try:
+            os.mkdir(Default_dir)
+        except:
+            pass
         
             #try:
             #    os.mkdir(Default_dir_pdf)
             #except:
             #    pass
             
-            plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_' + jet + '_' + 'mask' + mask + '_' + elementName + '.png', dpi = 600, transparent = True, bbox_inches='tight') #FIX THIS!!!!!!!
+        plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_' + jet + '_' + 'mask' + mask + '_' + elementName + '.png', dpi = 600, transparent = True, bbox_inches='tight') #FIX THIS!!!!!!!
             #plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_10000_tor4_pr45_100Myr_lower_mask_O6' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
         
-            plt.close()
+        plt.close()
             oo += 1
             
             #pdb.set_trace()
