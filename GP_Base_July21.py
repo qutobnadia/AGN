@@ -19,7 +19,7 @@ mask = 200 # choose from: 5, 200
 
 print("Jet type: " + jetType)
 print("Isotope: " + elementName)
-print(maks)
+print(mask)
 
 import matplotlib
 matplotlib.use('Agg')
