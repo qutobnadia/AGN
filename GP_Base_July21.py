@@ -58,19 +58,19 @@ unit_base = {'UnitLength_in_cm'         : 3.08568e+21,
 print("Checkpoint 0")
 
 # Define how to actaully call the file directory for each jet type 
-if jetType == "Precessing kinetic jet with lower energy flux"
+if jetType == "Precessing kinetic jet with lower energy flux":
       jet == "m12_mcvt_m2_10000_tor4_pr45_100Myr_lower"
-elif jetType == "Precessing kinetic jet with higher energy flux"
+elif jetType == "Precessing kinetic jet with higher energy flux":
       jet == "m12_mcvt_m2_10000_tor4_pr45_100Myr"
-elif jetType == "Hot thermal jet with higher lower flux"
+elif jetType == "Hot thermal jet with higher lower flux":
       jet == "m12_mcvt_m2_t95_3000_tor4_lower"
-elif jetType == "m12_mcvt_m2_t95_3000_tor4"
+elif jetType == "m12_mcvt_m2_t95_3000_tor4":
       jet == "Hot thermal jet with higher energy flux"
-elif jetType == "No Jet"
+elif jetType == "No Jet":
       jet == "m12_mcvt_default_64"
-elif jetType == "Cosmic ray jet with lower energy flux"
+elif jetType == "Cosmic ray jet with lower energy flux":
       jet == "m12_mcvt_m2_t7_3000_tor3_CR10_t4_lower"
-else jetType == "Cosmic ray jet with higher energy flux"
+else jetType == "Cosmic ray jet with higher energy flux":
       jet == "m12_mcvt_m2_t7_3000_tor3_CR10_t4"
     
 Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/' + jet + '/output/'
@@ -122,15 +122,15 @@ for ii in range(len(List_diir)):
         print("Checkpoint 2")
 
         # this sets the actauly element properties based on the name entered 
-          if elementName == ["mass"]
+          if elementName == "mass":
             element == mass
-          elif elementName == ["O6"]
+          elif elementName == "O6":
             element == Oxygen5_mass
-          elif elementName == ["O8"]
+          elif elementName == "O8":
             element == Oxygen7_mass
-          elif elementName == ["Mg2"]
+          elif elementName == "Mg2":
             element == Magnesium2_mass
-          else elementName == ["Fe"]
+          else elementName == "Fe":
             element == Iron_mass
                       
           NN = 100 # this defines the x, y, and z axis ranges for the plots 
