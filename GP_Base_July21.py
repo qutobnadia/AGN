@@ -240,7 +240,7 @@ for fname in List_diir:
         plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_' + jet + '_' + 'mask' + mask + '_' + elementName + '.png', dpi = 600, transparent = True, bbox_inches='tight') #FIX THIS!!!!!!!
             #plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_10000_tor4_pr45_100Myr_lower_mask_O6' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
         
-        plt.close()
-            oo += 1
+plt.close()
+oo += 1
             
             #pdb.set_trace()
