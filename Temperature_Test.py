@@ -136,8 +136,8 @@ for fname in List_diir:
     Scene1 = sphviewer.Scene(Particles1)
     Scene1_m = sphviewer.Scene(Particles1_m) 
 
-    Scene1.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent=extendd) 
-    Scene1_m.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent=extendd) 
+    Scene1.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, extent=extendd) 
+    Scene1_m.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, extent=extendd) 
 
     Render1   = sphviewer.Render(Scene1)
     Render1_m = sphviewer.Render(Scene1_m)
@@ -149,7 +149,7 @@ for fname in List_diir:
     extent1 = Render1.get_extent()
     divider = make_axes_locatable(ax1)
   
-    image1 = ax1.imshow(img1-img1_m, extent=extent1, origin='lower', cmap=plt.cm.jet, vmin=0, vmax=8, rasterized=True)
+    image1 = ax1.imshow(img1-img1_m, extent=extent1, origin='lower', cmap=plt.cm.jet, vmin=4, vmax=7, rasterized=True)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
     cb = fig.colorbar(image1, cax=cax, orientation="horizontal")
@@ -166,7 +166,8 @@ for fname in List_diir:
     Scene2 = sphviewer.Scene(Particles2)
     Scene2_m = sphviewer.Scene(Particles2_m)
 
-    Scene2.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
+    Scene2.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, extent=extendd) 
+    Scene2_m.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, extent=extendd) 
 
     Render2   = sphviewer.Render(Scene2)
     Render2_m = sphviewer.Render(Scene2_m)
@@ -177,7 +178,7 @@ for fname in List_diir:
     img2_m  = Render2_m.get_image()
     extent2 = Render2.get_extent()
   
-    image2 = ax2.imshow(img2-img2_m, extent=extent2, origin='lower', cmap=plt.cm.jet, vmin=0, vmax=8, rasterized=True)
+    image2 = ax2.imshow(img2-img2_m, extent=extent2, origin='lower', cmap=plt.cm.jet, vmin=4, vmax=7, rasterized=True)
     divider = make_axes_locatable(ax2)
 
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
@@ -197,7 +198,8 @@ for fname in List_diir:
     Scene3 = sphviewer.Scene(Particles3)
     Scene3_m = sphviewer.Scene(Particles3_m)
 
-    Scene3.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
+    Scene3.update_camera(r='infinity', t=90, p = 0, roll = -90, x = 0, y = 0, z = 0, extent=extendd) 
+    Scene3_m.update_camera(r='infinity', t=90, p = 0, roll = -90, x = 0, y = 0, z = 0, extent=extendd) 
 
     Render3   = sphviewer.Render(Scene3)
     Render3_m = sphviewer.Render(Scene3_m)
@@ -208,7 +210,7 @@ for fname in List_diir:
     img3_m  = Render3_m.get_image()
     extent3 = Render3.get_extent()
   
-    image3 = ax3.imshow(img3-img3_m, extent=extent3, origin='lower', cmap=plt.cm.jet, vmin=0, vmax=8, rasterized=True)
+    image3 = ax3.imshow(img3-img3_m, extent=extent3, origin='lower', cmap=plt.cm.jet, vmin=4, vmax=7, rasterized=True)
     divider = make_axes_locatable(ax3)
 
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
