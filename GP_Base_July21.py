@@ -122,18 +122,18 @@ for fname in List_diir:
         print("Checkpoint 2")
 
         # this sets the actauly element properties based on the name entered 
-            if elementName == "mass":
-                        element == mass
-            elif elementName == "O6":
-                        element == Oxygen5_mass
-            elif elementName == "O8":
-                        element == Oxygen7_mass
-            elif elementName == "Mg2":
-                        element == Magnesium2_mass
-            elif elementName == "Fe":
-                        element == Iron_mass
-            else: 
-                        element == Temperature 
+        if elementName == "mass":
+            element == mass
+        elif elementName == "O6":
+            element == Oxygen5_mass
+        elif elementName == "O8":
+            element == Oxygen7_mass
+        elif elementName == "Mg2":
+            element == Magnesium2_mass
+        elif elementName == "Fe":
+            element == Iron_mass
+        else: 
+            element == Temperature 
                       
           NN = 100 # this defines the x, y, and z axis ranges for the plots 
           hh = Gas_Softening #what does gas softening mean?
