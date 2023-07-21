@@ -101,6 +101,8 @@ for fname in List_diir:
     Oxygen6_mass = ds.all_data()[('gas', 'O_p6_mass')].in_units('Msun')
     Oxygen7_mass = ds.all_data()[('gas', 'O_p7_mass')].in_units('Msun')
     # Magnesium goes here
+    temperature = ds.all_data()[('PartType0', 'temperature')].in_units('Msun')
+
     print("Checkpoint 2")
     
     NN = 100 # this defines the x, y, and z axis ranges for the plots 
