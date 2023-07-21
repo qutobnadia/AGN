@@ -135,97 +135,97 @@ for fname in List_diir:
         else: 
             element == Temperature 
                       
-          NN = 100 # this defines the x, y, and z axis ranges for the plots 
-          hh = Gas_Softening #what does gas softening mean?
-                    
-          Particles = sphviewer.Particles(Gas_location, element, hh) # CHANGE PARAMETER HERE!
-          Scene = sphviewer.Scene(Particles)
+        NN = 100 # this defines the x, y, and z axis ranges for the plots 
+        hh = Gas_Softening #what does gas softening mean?
+        
+        Particles = sphviewer.Particles(Gas_location, element, hh) # CHANGE PARAMETER HERE!
+        Scene = sphviewer.Scene(Particles)
 
-            fig = plt.figure(1,figsize=(15,5))
-            fig.suptitle(r" " + jetType + " : Snapshot #" + str(sorted[oo]+1) + " with " + elementType + " Mass & Mask " + mask, fontsize=17, x=0.5, y=1.5) #set a figure title on top
-            plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
-            
-            ax1 = fig.add_subplot(131)
-            ax2 = fig.add_subplot(132)
-            ax3 = fig.add_subplot(133)
-            
-            extendd = [-NN,NN,-NN,NN]
+        fig = plt.figure(1,figsize=(15,5))
+        fig.suptitle(r" " + jetType + " : Snapshot #" + str(sorted[oo]+1) + " with " + elementType + " Mass & Mask " + mask, fontsize=17, x=0.5, y=1.5) #set a figure title on top
+        plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
+
+        ax1 = fig.add_subplot(131)
+        ax2 = fig.add_subplot(132)
+        ax3 = fig.add_subplot(133)
+
+        extendd = [-NN,NN,-NN,NN]
             
             # Begin Masking
-            z = Gas_location[:,2] 
-            mask_z = np.abs(z)<mask 
-            Particles1 = sphviewer.Particles(Gas_location[mask_z], element[mask_z], hh[mask_z]) # CHANGE PARAMETER HERE! 
+        z = Gas_location[:,2] 
+        mask_z = np.abs(z)<mask 
+        Particles1 = sphviewer.Particles(Gas_location[mask_z], element[mask_z], hh[mask_z]) # CHANGE PARAMETER HERE! 
+
+        Scene1 = sphviewer.Scene(Particles1) 
+        Scene1.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent=extendd) 
+
+        Render1 = sphviewer.Render(Scene1)
+        Render1.set_logscale()
+        img1 = Render1.get_image()
+        extent1 = Render1.get_extent()
+        divider = make_axes_locatable(ax1)
         
-            Scene1 = sphviewer.Scene(Particles1) 
-            Scene1.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent=extendd) 
-            
-            Render1 = sphviewer.Render(Scene1)
-            Render1.set_logscale()
-            img1 = Render1.get_image()
-            extent1 = Render1.get_extent()
-            divider = make_axes_locatable(ax1)
-        
-            #ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-            image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
-            cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
-            fig.add_axes(cax)
-            cb = fig.colorbar(image1, cax=cax, orientation="horizontal")
-            cb.ax.tick_params(labelsize=15)
-        
-            ax1.set_xlabel('$X$(kpc)', size=12)
-            ax1.set_ylabel('$Y$(kpc)', size=12)
-        
-            x = Gas_location[:,0] 
-            mask_x=np.abs(x)<mask  
-            Particles2 = sphviewer.Particles(Gas_location[mask_x], element[mask_x], hh[mask_x]) # CHANGE PARAMETER HERE! 
-        
-            Scene2 = sphviewer.Scene(Particles2)
-            Scene2.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
-            
-            Render2 = sphviewer.Render(Scene2)
-            Render2.set_logscale()
-            img2 = Render2.get_image()
-            extent2 = Render2.get_extent()
-            #divider = make_axes_locatable(ax2)
-            #ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-            image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
-        
-            divider = make_axes_locatable(ax2)
-            cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
-            fig.add_axes(cax)
-            cb = fig.colorbar(image2, cax=cax, orientation="horizontal")
-            #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
-            cb.ax.tick_params(labelsize=15)
-        
-            ax2.set_xlabel('$Y$(kpc)', size=12)
-            ax2.set_ylabel('$Z$(kpc)', size=12)
-        
-            y = Gas_location[:,1]
-            mask_y=np.abs(y)<mask  
-            Particles3 = sphviewer.Particles(Gas_location[mask_y], element[mask_y], hh[mask_y]) # CHANGE PARAMETER HERE! 
-        
-            Scene3 = sphviewer.Scene(Particles3) # MODIFIED!
-            Scene3.update_camera(r='infinity', t=90, p = 0, roll = -90, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
-        
-            Render3 = sphviewer.Render(Scene3)
-            Render3.set_logscale()
-            img3 = Render3.get_image()
-            extent3 = Render3.get_extent()
-            divider = make_axes_locatable(ax3)
-            #ax3.imshow(img3, extent=extent3, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-            image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
-        
-            cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
-            fig.add_axes(cax)
-            cb = fig.colorbar(image3, cax=cax, orientation="horizontal")
-            #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
-            cb.ax.tick_params(labelsize=15)
-        
-            ax3.set_xlabel('$Z$(kpc)', size=12)
-            ax3.set_ylabel('$X$(kpc)', size=12)
-            
-            Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + jet + '_mask' + mask + '_' + elementName 
-            #Default_dir_pdf = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_10000_tor4_pr45_100Myr_lower_mask_pdf'
+        #ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
+        image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
+        cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
+        fig.add_axes(cax)
+        cb = fig.colorbar(image1, cax=cax, orientation="horizontal")
+        cb.ax.tick_params(labelsize=15)
+
+        ax1.set_xlabel('$X$(kpc)', size=12)
+        ax1.set_ylabel('$Y$(kpc)', size=12)
+
+        x = Gas_location[:,0] 
+        mask_x=np.abs(x)<mask  
+        Particles2 = sphviewer.Particles(Gas_location[mask_x], element[mask_x], hh[mask_x]) # CHANGE PARAMETER HERE! 
+
+        Scene2 = sphviewer.Scene(Particles2)
+        Scene2.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
+
+        Render2 = sphviewer.Render(Scene2)
+        Render2.set_logscale()
+        img2 = Render2.get_image()
+        extent2 = Render2.get_extent()
+        #divider = make_axes_locatable(ax2)
+        #ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
+        image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
+
+        divider = make_axes_locatable(ax2)
+        cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
+        fig.add_axes(cax)
+        cb = fig.colorbar(image2, cax=cax, orientation="horizontal")
+        #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
+        cb.ax.tick_params(labelsize=15)
+
+        ax2.set_xlabel('$Y$(kpc)', size=12)
+        ax2.set_ylabel('$Z$(kpc)', size=12)
+
+        y = Gas_location[:,1]
+        mask_y=np.abs(y)<mask  
+        Particles3 = sphviewer.Particles(Gas_location[mask_y], element[mask_y], hh[mask_y]) # CHANGE PARAMETER HERE! 
+
+        Scene3 = sphviewer.Scene(Particles3) # MODIFIED!
+        Scene3.update_camera(r='infinity', t=90, p = 0, roll = -90, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
+
+        Render3 = sphviewer.Render(Scene3)
+        Render3.set_logscale()
+        img3 = Render3.get_image()
+        extent3 = Render3.get_extent()
+        divider = make_axes_locatable(ax3)
+        #ax3.imshow(img3, extent=extent3, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
+        image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
+
+        cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
+        fig.add_axes(cax)
+        cb = fig.colorbar(image3, cax=cax, orientation="horizontal")
+        #cb.set_label(label='Temperature ($^{\circ}$C)', size='large', weight='bold')
+        cb.ax.tick_params(labelsize=15)
+
+        ax3.set_xlabel('$Z$(kpc)', size=12)
+        ax3.set_ylabel('$X$(kpc)', size=12)
+
+        Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + jet + '_mask' + mask + '_' + elementName 
+        #Default_dir_pdf = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_10000_tor4_pr45_100Myr_lower_mask_pdf'
         
             try:
                 os.mkdir(Default_dir)
