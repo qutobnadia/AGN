@@ -149,7 +149,7 @@ for fname in List_diir:
     extent1 = Render1.get_extent()
     divider = make_axes_locatable(ax1)
   
-    image1 = ax1.imshow(img1-img1_m, extent=extent1, origin='lower', cmap=plt.cm.jet, vmin=4, vmax=7, rasterized=True)
+    image1 = ax1.imshow(img1-img1_m, extent=extent1, origin='lower', cmap=plt.cm.jet, vmin-5, vmax=7, rasterized=True)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
     cb = fig.colorbar(image1, cax=cax, orientation="horizontal")
@@ -178,7 +178,7 @@ for fname in List_diir:
     img2_m  = Render2_m.get_image()
     extent2 = Render2.get_extent()
   
-    image2 = ax2.imshow(img2-img2_m, extent=extent2, origin='lower', cmap=plt.cm.jet, vmin=4, vmax=7, rasterized=True)
+    image2 = ax2.imshow(img2-img2_m, extent=extent2, origin='lower', cmap=plt.cm.jet, vmin-5, vmax=7, rasterized=True)
     divider = make_axes_locatable(ax2)
 
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
@@ -210,7 +210,7 @@ for fname in List_diir:
     img3_m  = Render3_m.get_image()
     extent3 = Render3.get_extent()
   
-    image3 = ax3.imshow(img3-img3_m, extent=extent3, origin='lower', cmap=plt.cm.jet, vmin=4, vmax=7, rasterized=True)
+    image3 = ax3.imshow(img3-img3_m, extent=extent3, origin='lower', cmap=plt.cm.jet, vmin-5, vmax=7, rasterized=True)
     divider = make_axes_locatable(ax3)
 
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
