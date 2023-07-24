@@ -49,8 +49,6 @@ from yt import YTQuantity
 from matplotlib.pyplot import *
 from matplotlib.pyplot import cm
 
-import mpi4py 
-
 unit_base = {'UnitLength_in_cm'         : 3.08568e+21,
              'UnitMass_in_g'            :   1.989e+43,
              'UnitVelocity_in_cm_per_s' :      100000}
@@ -99,6 +97,7 @@ print("Checkpoint 0C")
     
 oo = 0
 for fname in List_diir:
+        print("Checkpoint 1")
         data = h5py.File(fname,"r")
         BH_Center = data["PartType5"]["Coordinates"][:]
         print(BH_Center)
@@ -106,7 +105,7 @@ for fname in List_diir:
         Gas_location = data["PartType0"]["Coordinates"][:] - BH_Center
         Gas_mass = 1e10*data["PartType0"]["Masses"][:]
         Gas_Softening = data["PartType0"]["SmoothingLength"][:]
-        print("Checkpoint 1")
+        print("Checkpoint 1A")
         
         # this is where I started adding additional parameters
         ds = yt.load(fname, unit_base=unit_base) 
