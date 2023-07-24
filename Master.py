@@ -49,6 +49,8 @@ from yt import YTQuantity
 from matplotlib.pyplot import *
 from matplotlib.pyplot import cm
 
+import mpi4py 
+
 unit_base = {'UnitLength_in_cm'         : 3.08568e+21,
              'UnitMass_in_g'            :   1.989e+43,
              'UnitVelocity_in_cm_per_s' :      100000}
