@@ -205,7 +205,7 @@ for fname in List_diir:
     #except:
     #    pass
     
-    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_default_64 _mask5_O8' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
+    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_default_64_mask5_O8' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
     #plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_default_64_mask5_O6' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
 
     plt.close()
