@@ -13,14 +13,12 @@ module load gcc/10.2.0-fasrc01
 module load hdf5/1.10.7-fasrc01
 module load python/3.10.9-fasrc01
 
-python July20_CR_mask5_mass.py &
-python July20_CR_mask5_O8.py &
-python July20_CR_mask5_O6.py &
-python July20_CR_mask5_Mg2.py &
+python July20_CR_mask5_temp.py &
+python July20_CR_lower_mask5_temp.py &
+python July20_CR_mask200_temp.py &
+python July20_CR_mask200_lower_temp.py &
 
-python July20_CR_mask200_mass.py &
-python July20_CR_mask200_O8.py &
-python July20_CR_mask200_O6.py &
-python July20_CR_mask200_Mg2.py &
+python July25_m12_mcvt_default_64_mask5_temp.py &
+python July25_m12_mcvt_default_64_mask200_temp.py &
 
 wait 
