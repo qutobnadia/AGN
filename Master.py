@@ -1,4 +1,4 @@
-jetType = 'Hot thermal jet with higher flux'  # choose from: 
+#kk = 'Hot thermal jet with higher flux'  # choose from: 
             # "Precessing kinetic jet with lower energy flux" 
             # "Precessing kinetic jet with higher energy flux" 
             # "Hot thermal jet with higher flux"
@@ -7,7 +7,7 @@ jetType = 'Hot thermal jet with higher flux'  # choose from:
             # "Cosmic ray jet with lower energy flux"
             # "Cosmic ray jet with higher energy flux" 
             # YOU HAVE TO COPY THE NAME DIRECTLY!!!!!
-elementName = 'O8'  # choose from: 
+#elementName = 'O8'  # choose from: 
                 # "mass"
                 # "O6"
                 # "O8"
@@ -15,19 +15,17 @@ elementName = 'O8'  # choose from:
                 # "Fe"
                 # "Temperature" 
                 # YOU HAVE TO COPY THE NAME DIRECTLY!!!!!
-mask = 200 # choose from: 5, 200 
+#mask = 200 # choose from: 5, 200 
 
-print("Jet Type: " + jetType)
-print("Isotope: " + elementName)
-print(mask)
+#print("Jet Type: " + kk)
+#print("Isotope: " + elementName)
+#print(mask)
 
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
-#import illustris_python as il
 import h5py
-#import illustris_python.snapshot as snapp
 import os
 import sys
 import sphviewer
@@ -44,10 +42,12 @@ from numpy import *
 from yt import *
 yt.enable_parallelism()
 from mpl_toolkits.axes_grid1 import AxesGrid
-#import glob
 from yt import YTQuantity
 from matplotlib.pyplot import *
 from matplotlib.pyplot import cm
+
+import argparse
+import subprocess 
 
 unit_base = {'UnitLength_in_cm'         : 3.08568e+21,
              'UnitMass_in_g'            :   1.989e+43,
@@ -57,18 +57,27 @@ unit_base = {'UnitLength_in_cm'         : 3.08568e+21,
 #data['PartType0'].keys()
 print('Checkpoint 0')
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--param1', type=int) # mask
+parser.add_argument('--param2', type=str) # jet type 
+
+args = parser.parse_args()
+
+jj = args.param1     ## 5 or 200  (kpc)
+kk = args.param2     ## simulation-type
+
 # Define how to actaully call the file directory for each jet type 
-if jetType == 'Precessing kinetic jet with lower energy flux':
+if kk == 'Precessing kinetic jet with lower energy flux':
       jet == 'm12_mcvt_m2_10000_tor4_pr45_100Myr_lower'
-elif jetType == 'Precessing kinetic jet with higher energy flux':
+elif kk == 'Precessing kinetic jet with higher energy flux':
       jet == 'm12_mcvt_m2_10000_tor4_pr45_100Myr'
-elif jetType == 'Hot thermal jet with lower flux':
+elif kk == 'Hot thermal jet with lower flux':
       jet == 'm12_mcvt_m2_t95_3000_tor4_lower'
-elif jetType == 'Hot thermal jet with higher energy flux':
+elif kk == 'Hot thermal jet with higher energy flux':
       jet = 'm12_mcvt_m2_t95_3000_tor4'
-elif jetType == 'Cosmic ray jet with lower energy flux':
+elif kk == 'Cosmic ray jet with lower energy flux':
       jet == 'm12_mcvt_m2_t7_3000_tor3_CR10_t4_lower'
-elif jetType == 'Cosmic ray jet with higher energy flux':
+elif kk == 'Cosmic ray jet with higher energy flux':
       jet == 'm12_mcvt_m2_t7_3000_tor3_CR10_t4'
 else:
       jet == 'm12_mcvt_default_64'
@@ -136,14 +145,16 @@ for fname in List_diir:
         else: 
             element == Temperature 
                       
-        NN = 100 # this defines the x, y, and z axis ranges for the plots 
+        cuts = np.array([5, 200])
+        NN = cuts[jj]
+        simulatoin = simulations_name[kk] # this defines the x, y, and z axis ranges for the plots 
         hh = Gas_Softening #what does gas softening mean?
         
         Particles = sphviewer.Particles(Gas_location, element, hh) # CHANGE PARAMETER HERE!
         Scene = sphviewer.Scene(Particles)
 
         fig = plt.figure(1,figsize=(15,5))
-        fig.suptitle(r" " + jetType + " : Snapshot #" + str(sorted[oo]+1) + " with " + elementType + " Mass & Mask " + mask, fontsize=17, x=0.5, y=1.5) #set a figure title on top
+        fig.suptitle(r" " + kk + " : Snapshot #" + str(sorted[oo]+1) + " with " + elementType + " Mass & Mask " + mask, fontsize=17, x=0.5, y=1.5) #set a figure title on top
         plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
 
         ax1 = fig.add_subplot(131)
@@ -243,5 +254,7 @@ for fname in List_diir:
         
 plt.close()
 oo += 1
+parallel(n_jobs=48)(delayed(Loop_snap)(mm) for mm in range(len(number_snapshot)))
+
             
             #pdb.set_trace()
