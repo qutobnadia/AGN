@@ -59,31 +59,31 @@ jet = ['m12_mcvt_m2_10000_tor4_pr45_100Myr_lower', 'm12_mcvt_m2_10000_tor4_pr45_
 
 # you could put a for loop here that replaces 'm12_mcvt_m2_10000_tor4_pr45_100Myr' with whaterver directories are in /hernquist_lab/AGN_Feedback_Fire then goes to the 'output' folder in each 
 print("Checkpoint 0")
-Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_10000_tor4_pr45_100Myr_lower/output/'
+Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/'+jet+'/output/'
 
 diir = glob(Directory_path + '*.hdf5')
 
-List_diir = np.atleast_1d(diir)
+List_diir = 100
 snap_order = []
 List_diir_image = []
 
 print("Checkpoint 0A")
 # this calls all of the snapshots in the output folder
-for ii in range(len(List_diir)): 
-    AA = List_diir[ii]
-    snap_ii = int(AA[AA.find('snapshot_')+len('snapshot_'):AA.find('.hdf5')])
-    snap_order = np.append(snap_order, [snap_ii])
-    List_diir_image = np.append(List_diir_image, List_diir[ii])
-    # add txt conversion line later! 
-    print("Checkpoint 0B")
+#for ii in range(len(List_diir)): 
+#    AA = List_diir[ii]
+#    snap_ii = int(AA[AA.find('snapshot_')+len('snapshot_'):AA.find('.hdf5')])
+#    snap_order = np.append(snap_order, [snap_ii])
+#    List_diir_image = np.append(List_diir_image, List_diir[ii])
+#    # add txt conversion line later! 
+#    print("Checkpoint 0B")
 # this puts the snapshots in the correct numerical order when they are runa nd saved 
-int_snap = snap_order.astype(int) 
-sorted = np.sort(int_snap)
-List_diir = List_diir_image[np.argsort(int_snap)]
-print("Checkpoint 0C")
+#int_snap = snap_order.astype(int) 
+#sorted = np.sort(int_snap)
+#List_diir = List_diir_image[np.argsort(int_snap)]
+#print("Checkpoint 0C")
 
 oo = 0
-for fname in List_diir:
+for fname in jet:
     data = h5py.File(fname,"r")
     BH_Center = data["PartType5"]["Coordinates"][:]
     print(BH_Center)
@@ -105,17 +105,15 @@ for fname in List_diir:
     Oxygen7_mass = ds.all_data()[('gas', 'O_p7_mass')].in_units('Msun')
     Magnesium2_mass = ds.all_data()[('gas', 'Mg_p1_mass')].in_units('Msun')
     print("Checkpoint 2")
-
-    ion = [Oxygen5_mass, Oxygen7_mass, Magnesium2_mass, mass] 
-    
+   
     NN = 100 # this defines the x, y, and z axis ranges for the plots 
     hh = Gas_Softening #what does gas softening mean?
 
-    Particles = sphviewer.Particles(Gas_location, Oxygen5_mass, hh) # CHANGE PARAMETER HERE!
+    Particles = sphviewer.Particles(Gas_location, mass, hh) # CHANGE PARAMETER HERE!
     Scene = sphviewer.Scene(Particles)
     
     fig = plt.figure(1,figsize=(15,5))
-    fig.suptitle(r" : Snapshot #" + str(sorted[oo]+1) + " with Mask 200", fontsize=17, x=0.5, y=1.5) #set a figure title on top
+    fig.suptitle(r" : Snapshot #" + str(sorted[oo]+1) + " Mass Density with Mask 200", fontsize=17, x=0.5, y=1.5) #set a figure title on top
     plt.subplots_adjust(top =1.8, bottom=0.2, hspace=0.3, wspace=0.3)
     
     ax1 = fig.add_subplot(131)
@@ -127,7 +125,7 @@ for fname in List_diir:
     # Begin Masking
     z = Gas_location[:,2] 
     mask_z = np.abs(z)<200 # 5 is the parameter that we can modify 
-    Particles1 = sphviewer.Particles(Gas_location[mask_z], ion[mask_z], hh[mask_z]) # CHANGE PARAMETER HERE! 
+    Particles1 = sphviewer.Particles(Gas_location[mask_z], mass[mask_z], hh[mask_z]) # CHANGE PARAMETER HERE! 
 
     Scene1 = sphviewer.Scene(Particles1) 
     Scene1.update_camera(r='infinity', t=0, p = 0, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent=extendd) 
@@ -150,7 +148,7 @@ for fname in List_diir:
 
     x = Gas_location[:,0] 
     mask_x=np.abs(x)<200  # 5 is the parameter that we can modify 
-    Particles2 = sphviewer.Particles(Gas_location[mask_x], ion[mask_x], hh[mask_x]) # CHANGE PARAMETER HERE! 
+    Particles2 = sphviewer.Particles(Gas_location[mask_x], mass[mask_x], hh[mask_x]) # CHANGE PARAMETER HERE! 
 
     Scene2 = sphviewer.Scene(Particles2)
     Scene2.update_camera(r='infinity', t=-90, p = -90, roll = 0, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
@@ -175,7 +173,7 @@ for fname in List_diir:
 
     y = Gas_location[:,1]
     mask_y=np.abs(y)<200  #5 is the parameter that we can modify 
-    Particles3 = sphviewer.Particles(Gas_location[mask_y], ion[mask_y], hh[mask_y]) # CHANGE PARAMETER HERE! 
+    Particles3 = sphviewer.Particles(Gas_location[mask_y], mass[mask_y], hh[mask_y]) # CHANGE PARAMETER HERE! 
 
     Scene3 = sphviewer.Scene(Particles3) # MODIFIED!
     Scene3.update_camera(r='infinity', t=90, p = 0, roll = -90, x = 0, y = 0, z = 0, vmin= 6.3, vmax= 7.4, extent= extendd)
