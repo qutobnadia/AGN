@@ -13,9 +13,9 @@ module load gcc/10.2.0-fasrc01
 module load hdf5/1.10.7-fasrc01
 module load python/3.10.9-fasrc01
 
-python July25_10000_tor4_pr45_100Myr_lower_mask200_temp.py & # missing
-python July25_10000_tor4_pr45_100Myr_mask200_temp.py & # missing 
-python July25_10000_tor4_pr45_100Myr_lower_mask5_temp.py & # missing
-python July25_10000_tor4_pr45_100Myr_mask5_temp.py & # missing
+python July25_10000_tor4_pr45_100Myr_lower_mask200_temp.py & # verified
+python July25_10000_tor4_pr45_100Myr_mask200_temp.py & # verified 
+python July25_10000_tor4_pr45_100Myr_lower_mask5_temp.py & # verified 
+python July25_10000_tor4_pr45_100Myr_mask5_temp.py & # verified  
 
 wait 
