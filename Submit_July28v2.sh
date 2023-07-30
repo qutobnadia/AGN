@@ -18,8 +18,4 @@ python July25_10000_tor4_pr45_100Myr_mask200_temp.py & # missing
 python July25_10000_tor4_pr45_100Myr_lower_mask5_temp.py & # missing
 python July25_10000_tor4_pr45_100Myr_mask5_temp.py & # missing
 
-python July20_m12_mcvt_default_64_mask200_O8.py & # wrong
-python July20_m12_mcvt_default_64_mask5_mass.py & # wrong
-python July20_m12_mcvt_default_64_mask200_mass.py & # wrong
-
 wait 
