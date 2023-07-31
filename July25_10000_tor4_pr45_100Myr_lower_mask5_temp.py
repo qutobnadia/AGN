@@ -55,7 +55,7 @@ Camera:
 """
 # you could put a for loop here that replaces 'm12_mcvt_m2_10000_tor4_pr45_100Myr' with whaterver directories are in /hernquist_lab/AGN_Feedback_Fire then goes to the 'output' folder in each 
 print("Checkpoint 0")
-Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/10000_tor4_pr45_100Myr_lower/output/'
+Directory_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_m2_10000_tor4_pr45_100Myr_lower/output/'
 
 diir = glob(Directory_path + '*.hdf5')
 
