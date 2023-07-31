@@ -30,9 +30,11 @@ from sphviewer.tools import QuickView
 ### Here we study the density profile of the gas particles. We consider two different cases. 1) When we take into account all of the gas particles and monitor their density profile. 2) When we consider the star forming gas and see how do they look like!!!
 
 
-Dir_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_default_64/output/snapshot_003.hdf5'
+jet = ['m12_mcvt_m2_10000_tor4_pr45_100Myr_lower', 'm12_mcvt_m2_10000_tor4_pr45_100Myr', 'm12_mcvt_m2_t7_3000_tor3_CR10_t4_lower', 
+       'm12_mcvt_m2_t7_3000_tor3_CR10_t4', 'm12_mcvt_default_64, m12_mcvt_m2_t95_3000_tor4_lower', 'm12_mcvt_m2_t95_3000_tor4']
 
-data = h5py.File("/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_default_64/output/snapshot_003.hdf5","r")
+Dir_path = '/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/'+jet+'m12_mcvt_default_64/output/snapshot_100.hdf5'
+data = h5py.File('/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/'+jet+'/output/snapshot_100.hdf5',"r")
 
 #data.keys()
 
@@ -46,7 +48,8 @@ data = h5py.File("/n/holylfs05/LABS/hernquist_lab/AGN_Feedback_Fire/m12_mcvt_def
 """
 
 
-for uu in range(1):
+#for uu in range(1):
+for uu in jet:
     
     BH_Center = data["PartType5"]["Coordinates"][:]
     Gas_location = data["PartType0"]["Coordinates"][:] - BH_Center
@@ -160,7 +163,7 @@ for uu in range(1):
     ax3.set_xlabel('$Z$(kpc)', size=12)
     ax3.set_ylabel('$X$(kpc)', size=12)
     
-    plt.savefig('/n/home00/remamimeibody/py-sphviewer/examples/Fire004.png', dpi = 400, transparent = True,bbox_inches='tight')
+    plt.savefig('/n/home13/nqutob/AGN_Feedback/100/Fire100.png', dpi = 400, transparent = True,bbox_inches='tight')
  
     
 pdb.set_trace()
