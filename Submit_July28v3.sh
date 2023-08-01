@@ -13,6 +13,7 @@ module load gcc/10.2.0-fasrc01
 module load hdf5/1.10.7-fasrc01
 module load python/3.10.9-fasrc01
 
+python July25_t95_3000_tor4_mask200_temp.py & 
 python July20_CR_mask200_mass.py &
 python July20_CR_lower_mask200_mass.py & 
 python July25_CR_lower_mask200_temp.py & 
