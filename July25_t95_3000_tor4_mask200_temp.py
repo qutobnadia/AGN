@@ -73,7 +73,6 @@ for ii in range(len(List_diir)):
     # add txt conversion line later! 
     print("Checkpoint 0B")
 # this puts the snapshots in the correct numerical order when they are runa nd saved 
-pdb.set_trace()
 int_snap = snap_order.astype(int) 
 sorted = np.sort(int_snap)
 List_diir = List_diir_image[np.argsort(int_snap)]
