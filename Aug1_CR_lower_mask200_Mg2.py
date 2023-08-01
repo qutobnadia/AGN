@@ -137,7 +137,7 @@ extent1 = Render1.get_extent()
 divider = make_axes_locatable(ax1)
 
 #ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
+image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=6)
 cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
 fig.add_axes(cax)
 cb = fig.colorbar(image1, cax=cax, orientation="horizontal")
@@ -159,7 +159,7 @@ img2 = Render2.get_image()
 extent2 = Render2.get_extent()
 #divider = make_axes_locatable(ax2)
 #ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
+image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=6)
 
 divider = make_axes_locatable(ax2)
 cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
@@ -184,7 +184,7 @@ img3 = Render3.get_image()
 extent3 = Render3.get_extent()
 divider = make_axes_locatable(ax3)
 #ax3.imshow(img3, extent=extent3, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
+image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=6)
 
 cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
 fig.add_axes(cax)
@@ -195,7 +195,7 @@ cb.ax.tick_params(labelsize=15)
 ax3.set_xlabel('$Z$(kpc)', size=12)
 ax3.set_ylabel('$X$(kpc)', size=12)
 
-Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'CR_lower_mask200_Mg2'
+Default_dir = '/n/home13/nqutob/AGN_Feedback/100/' + 'CR_lower_mask200_Mg2'
 #Default_dir_pdf = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_default_64_mask200_pdf'
 
 try:
