@@ -141,7 +141,7 @@ for fname in List_diir:
     divider = make_axes_locatable(ax1)
 
     #ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=6)
+    image1 = ax1.imshow(img1, extent=extent1, origin='lower', cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
     cb = fig.colorbar(image1, cax=cax, orientation="horizontal")
@@ -163,7 +163,7 @@ for fname in List_diir:
     extent2 = Render2.get_extent()
     #divider = make_axes_locatable(ax2)
     #ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=6)
+    image2 = ax2.imshow(img2, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
 
     divider = make_axes_locatable(ax2)
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
@@ -188,7 +188,7 @@ for fname in List_diir:
     extent3 = Render3.get_extent()
     divider = make_axes_locatable(ax3)
     #ax3.imshow(img3, extent=extent3, origin='lower', cmap=plt.cm.jet, vmax= 3.0, rasterized=True)
-    image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=6)
+    image3 = ax3.imshow(img3, extent=extent2, origin='lower',cmap=plt.cm.jet, rasterized=True, vmin=0, vmax=4)
 
     cax = divider.new_vertical(size="7%", pad=0.7, pack_start=True)
     fig.add_axes(cax)
@@ -199,7 +199,7 @@ for fname in List_diir:
     ax3.set_xlabel('$Z$(kpc)', size=12)
     ax3.set_ylabel('$X$(kpc)', size=12)
     
-    Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'Mg2_10000_tor4_pr45_100Myr_lower_mask200'
+    Default_dir = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + '10000_tor4_pr45_100Myr_lower_mask200_Mg2'
     #Default_dir_pdf = '/n/home13/nqutob/AGN_Feedback/ion_snapshots/' + 'm12_mcvt_m2_10000_tor4_pr45_100Myr_lower_mask_pdf'
 
     try:
@@ -212,7 +212,7 @@ for fname in List_diir:
     #except:
     #    pass
     
-    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_Mg2_10000_tor4_pr45_100Myr_lower_mask200' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
+    plt.savefig(Default_dir + '/Fire' + str(sorted[oo]).zfill(3) + '_10000_tor4_pr45_100Myr_lower_mask200_Mg2' + '.png', dpi = 600, transparent = True, bbox_inches='tight')
     #plt.savefig(Default_dir_pdf + '/Fire' + str(sorted[oo]).zfill(3) + '_m12_mcvt_m2_10000_tor4_pr45_100Myr_lower_mask_O6' + '.pdf', dpi = 600, transparent = True, bbox_inches='tight')
 
     plt.close()
